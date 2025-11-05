@@ -1,5 +1,5 @@
 // ====================================================================
-//  national_clean.js — Main list of Italian EPG sources (Phase 3)
+//  national_clean.js — Main list of Italian EPG sources (Phase 4)
 //  Author: KritereTV (clean implementation)
 // ====================================================================
 
@@ -7,6 +7,7 @@ import fetchBlueEPG from "../../sources/it/blue_clean.js";
 import fetchRaiPlayEPG from "../../sources/it/raiplay_clean.js";
 import fetchSamsungEPG from "../../sources/it/samsungtvplus_clean.js";
 import fetchTivuEPG from "../../sources/it/tivu_clean.js";
+import fetchSuperGuidaEPG from "../../sources/it/superguidatv_clean.js";
 
 // --------------------------------------------------------------------
 // List of Italian EPG sources
@@ -42,8 +43,12 @@ export default {
 
   tivu: {
     fetch: fetchTivuEPG,
-    channels: [130, 136, 255] // example Tivùsat IDs
+    channels: [130, 136, 255]
+  },
+
+  superguidatv: {
+    fetch: fetchSuperGuidaEPG,
+    channels: [8, 10, 12, 14, 20] // example IDs: Italia 1, Rete 4, La7, TV8, 20 Mediaset
   }
 };
-
 
