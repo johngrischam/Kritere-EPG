@@ -1,0 +1,13 @@
+{
+  "name": "kritere-epg",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Clean-room EPG builder (Kritere version)",
+  "main": "merge_all_new.mjs",
+  "scripts": {
+    "start": "node merge_all_new.mjs"
+  },
+  "dependencies": {
+    "luxon": "^3.5.0"
+  }
+}
