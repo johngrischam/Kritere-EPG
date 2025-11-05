@@ -1,9 +1,9 @@
-name: Update All EPG Sources (Optimized)
+name: 🕓 Auto Update EPG (Kritere Clean Build Optimized)
 
 on:
   schedule:
-    - cron: "0 */6 * * *"
-  workflow_dispatch:
+    - cron: "0 */6 * * *"   # every 6 hours
+  workflow_dispatch:         # allow manual trigger from Actions tab
 
 jobs:
   update:
@@ -25,17 +25,31 @@ jobs:
       - name: 🧠 Run merge_all_new.mjs
         run: node merge_all_new.mjs
 
-      - name: 🔍 Check for changes
+      - name: 🔍 Check for EPG changes
         run: |
           if git diff --quiet merged_all.json; then
-            echo "No changes to commit."
+            echo "✅ No new EPG data — skipping commit."
             exit 0
+          else
+            echo "🟡 EPG changes detected — proceeding to commit."
           fi
 
       - name: 💾 Commit & push unified EPG
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Clean up unwanted local modifications
+          git restore package.json || true
+          git restore package-lock.json || true
+          git clean -fdx node_modules || true
+
+          # Stage only the merged_all.json file
           git add merged_all.json
+          if git diff --cached --quiet; then
+            echo "✅ No changes in merged_all.json after cleanup."
+            exit 0
+          fi
+
           git commit -m "🔄 Auto-update merged_all.json ($(date '+%F %T'))"
           git push
