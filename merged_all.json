@@ -7367,13 +7367,13 @@
         "title": "TG24 Buongiorno",
         "description": "Edizione mattutina del telegiornale della rete, con la rassegna stampa delle notizie in primo piano dall'Italia e dal mondo, le previsioni del meteo e le informazioni sul traffico.",
         "start": "2025-11-06T07:00:00.000+01:00",
-        "end": "2025-11-06T07:25:00.000+01:00",
+        "end": "2025-11-06T07:20:00.000+01:00",
         "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/266/p17407521bh10ab_BannerL1_w1920.webp"
       },
       {
         "title": "Sky Meteo24",
         "description": "Seguiamo insieme tutte le previsioni meteo regionali, nazionali e internazionali, dettagliate e sempre aggiornate, per essere sempre pronti.",
-        "start": "2025-11-06T07:25:00.000+01:00",
+        "start": "2025-11-06T07:20:00.000+01:00",
         "end": "2025-11-06T07:30:00.000+01:00",
         "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/266/p21636164bh10aa_BannerL1_w1920.webp"
       },
@@ -7381,69 +7381,76 @@
         "title": "TG24 Buongiorno",
         "description": "Edizione mattutina del telegiornale della rete, con la rassegna stampa delle notizie in primo piano dall'Italia e dal mondo, le previsioni del meteo e le informazioni sul traffico.",
         "start": "2025-11-06T07:30:00.000+01:00",
-        "end": "2025-11-06T08:00:00.000+01:00",
+        "end": "2025-11-06T07:55:00.000+01:00",
         "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/266/p17407521bh10ab_BannerL1_w1920.webp"
+      },
+      {
+        "title": "Accademia di pasticceria",
+        "description": "La sbrisolona ai lamponi e crema di zabaione di Corrado Carosi e Carlo Pozza e la torta dolce inverno di Tommaso Foglia e Stefano Zizzola.",
+        "start": "2025-11-06T07:55:00.000+01:00",
+        "end": "2025-11-06T08:25:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/266/p26176304bh10ab_BannerL2_w1920.webp"
       },
       {
         "title": "Innamorarsi a Parigi",
         "description": "Isabella, una produttrice di vino dell'Oregon, decide di partecipare a una competizione per ottenere dei riconoscimenti. Si reca così a Parigi, dove incontra Jacque, un giovane che le mostra la città.",
-        "start": "2025-11-06T08:00:00.000+01:00",
-        "end": "2025-11-06T09:50:00.000+01:00",
+        "start": "2025-11-06T08:25:00.000+01:00",
+        "end": "2025-11-06T10:10:00.000+01:00",
         "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/266/p16770523kh10aa_KeyArt_w1920.webp"
       },
       {
         "title": "Sky Tg24 Pillole",
         "description": "Il telegiornale con le notizie più importanti del giorno.",
-        "start": "2025-11-06T09:50:00.000+01:00",
-        "end": "2025-11-06T09:55:00.000+01:00",
+        "start": "2025-11-06T10:10:00.000+01:00",
+        "end": "2025-11-06T10:15:00.000+01:00",
         "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/266/p26035542bh8aa_BannerL2_w1920.webp"
       },
       {
         "title": "Alessandro Borghese: Celebrity Chef",
         "description": "Anteprima dei concorrenti che si sfideranno ai fornelli nel ristorante di Borghese.",
-        "start": "2025-11-06T09:55:00.000+01:00",
-        "end": "2025-11-06T10:00:00.000+01:00",
+        "start": "2025-11-06T10:15:00.000+01:00",
+        "end": "2025-11-06T10:20:00.000+01:00",
         "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/266/p22034128bh10ab_BannerL1_w1920.webp"
       },
       {
         "title": "Alessandro Borghese: Celebrity Chef",
         "description": "Alessandro Borghese oggi apre le porte del suo ristorante a Stefano Rapone e Daniele Tinti, che con l'aiuto della brigata si sfidano ai fornelli.",
-        "start": "2025-11-06T10:00:00.000+01:00",
-        "end": "2025-11-06T11:10:00.000+01:00",
+        "start": "2025-11-06T10:20:00.000+01:00",
+        "end": "2025-11-06T11:20:00.000+01:00",
         "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/266/p22034128bh10ab_BannerL1_w1920.webp"
       },
       {
         "title": "Sky Tg24 Pillole",
         "description": "Il telegiornale con le notizie più importanti del giorno.",
-        "start": "2025-11-06T11:10:00.000+01:00",
-        "end": "2025-11-06T11:15:00.000+01:00",
+        "start": "2025-11-06T11:20:00.000+01:00",
+        "end": "2025-11-06T11:25:00.000+01:00",
         "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/266/p26035542bh8aa_BannerL2_w1920.webp"
       },
       {
         "title": "Alessandro Borghese: 4 ristoranti",
         "description": "Tra i colli bolognesi, Alessandro assaggia le proposte di Alex, Margherita, Daniela e Antonio. Scopriamo quale concorrente si aggiudica il titolo di miglior ristorante.",
-        "start": "2025-11-06T11:15:00.000+01:00",
-        "end": "2025-11-06T12:35:00.000+01:00",
+        "start": "2025-11-06T11:25:00.000+01:00",
+        "end": "2025-11-06T12:40:00.000+01:00",
         "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/266/p12134652bh10ab_BannerL1_w1920.webp"
       },
       {
         "title": "Foodish",
         "description": "Anteprima della puntata dedicata alla miglior pasta al pesto con Dario Vergassola.",
-        "start": "2025-11-06T12:35:00.000+01:00",
-        "end": "2025-11-06T12:40:00.000+01:00",
+        "start": "2025-11-06T12:40:00.000+01:00",
+        "end": "2025-11-06T12:50:00.000+01:00",
         "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/266/p29839818bh10ab_BannerL1_w1920.webp"
       },
       {
         "title": "Foodish",
         "description": "Le migliori orecchiette di Bari in compagnia di Vladimir Luxuria. I concorrenti della puntata sono: Il Polpettificio, La Cecchina, Osteria Villari e La Bottega del tortellino.",
-        "start": "2025-11-06T12:40:00.000+01:00",
-        "end": "2025-11-06T13:55:00.000+01:00",
+        "start": "2025-11-06T12:50:00.000+01:00",
+        "end": "2025-11-06T14:00:00.000+01:00",
         "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/266/p29839818bh10ab_BannerL1_w1920.webp"
       },
       {
         "title": "Segreti tra le mura",
         "description": "La gemella di Natalie, Celia, è morta mentre ristrutturava una locanda storica con l'ex marito. Natalie diventa la tutrice della sua problematica nipote Sabrina.",
-        "start": "2025-11-06T13:55:00.000+01:00",
+        "start": "2025-11-06T14:00:00.000+01:00",
         "end": "2025-11-06T15:40:00.000+01:00",
         "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/266/p22951663kh8aa_KeyArt_w1920.webp"
       },
@@ -7458,13 +7465,13 @@
         "title": "Una promessa sotto il vischio",
         "description": "All'avvicinarsi del Natale, Elise Donner, divorziata, teme di essere sola. Quando incontra Nick, un bell'avvocato, stipula con lui un accordo insolito: i due fingono di essere sposati per fare buona impressione sulla famiglia e sui colleghi.",
         "start": "2025-11-06T17:25:00.000+01:00",
-        "end": "2025-11-06T19:10:00.000+01:00",
+        "end": "2025-11-06T19:05:00.000+01:00",
         "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/266/p13139828kh10ab_KeyArt_w1920.webp"
       },
       {
         "title": "Alessandro Borghese: 4 ristoranti",
         "description": "Alessandro Borghese cerca di scoprire qual è il miglior ristorante di cucina regionale della metropoli. In sfida: Tàscaro, a Porta Venezia, Napoli 1820 ai Navigli, Frades Porto Cervo a Piazza Duomo, Ristorante Rifugio a Bullona.",
-        "start": "2025-11-06T19:10:00.000+01:00",
+        "start": "2025-11-06T19:05:00.000+01:00",
         "end": "2025-11-06T20:30:00.000+01:00",
         "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/266/p12134652bh10ab_BannerL1_w1920.webp"
       },
@@ -7472,13 +7479,13 @@
         "title": "Prepartita Europa e Conference League",
         "description": "La presentazione degli incontri dei turni di UEFA Europa e Conference League, con immagini, analisi e interviste ai protagonisti. Esperti e ospiti sono pronti a dare i loro pareri in studio e in collegamento dagli stadi.",
         "start": "2025-11-06T20:30:00.000+01:00",
-        "end": "2025-11-06T21:00:00.000+01:00",
+        "end": "2025-11-06T20:55:00.000+01:00",
         "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/266/p20637351bh10ab_BannerL1_w1920.webp"
       },
       {
         "title": "UEFA Europa League: Betis - Olympique Lione",
         "description": "Dallo Stadio Olimpico La Cartuja di Siviglia, Spagna.",
-        "start": "2025-11-06T21:00:00.000+01:00",
+        "start": "2025-11-06T20:55:00.000+01:00",
         "end": "2025-11-06T23:00:00.000+01:00",
         "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/266/GNLZZGG002GMFS3_BannerL2_w1920.webp"
       },
@@ -7493,36 +7500,43 @@
         "title": "GialappaShow",
         "description": "La Gialappa's Band commenta con la sua proverbiale ironia diversi noti programmi televisivi, tra cui MasterChef Italia, X Factor e Pechino Express. Inoltre, colgono l'ironia anche dei più importanti eventi sportivi e dei tormentoni del web.",
         "start": "2025-11-06T23:05:00.000+01:00",
-        "end": "2025-11-07T01:30:00.000+01:00",
+        "end": "2025-11-07T01:15:00.000+01:00",
         "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/266/p24662652bh10ae_BannerL1_w1920.webp"
       },
       {
         "title": "Sex Movie in 4D",
         "description": "Ian Lafferty, un impacciato diciottenne, viene tormentato da suo fratello maggiore e umiliato per il lavoro in un negozio di ciambelle. Ma conquistare la sua prima ragazza diventa la sua maggiore preoccupazione e, per farlo, chiede aiuto a due amici.",
-        "start": "2025-11-07T01:30:00.000+01:00",
-        "end": "2025-11-07T03:30:00.000+01:00",
+        "start": "2025-11-07T01:15:00.000+01:00",
+        "end": "2025-11-07T03:10:00.000+01:00",
         "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/266/p182587vh10aq_VodArt_w1920.webp"
       },
       {
         "title": "Coppie che uccidono",
         "description": "Nella periferia di Los Angeles, una famiglia viene brutalmente aggredita nella sua abitazione, lasciando quattro morti e una madre gravemente ferita.",
-        "start": "2025-11-07T03:30:00.000+01:00",
-        "end": "2025-11-07T04:20:00.000+01:00",
+        "start": "2025-11-07T03:10:00.000+01:00",
+        "end": "2025-11-07T04:00:00.000+01:00",
         "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/266/p9784443bh10bd_BannerL2_w1920.webp"
       },
       {
         "title": "Lady Killer",
         "description": "Gloria Aiken e George Frazier si sono trasferiti insieme in Texas. Frazier scompare e le parti del suo corpo vengono trovate mozzate.",
-        "start": "2025-11-07T04:20:00.000+01:00",
-        "end": "2025-11-07T05:10:00.000+01:00",
+        "start": "2025-11-07T04:00:00.000+01:00",
+        "end": "2025-11-07T04:50:00.000+01:00",
         "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/266/p189681bh8bn_BannerL2_w1920.webp"
       },
       {
         "title": "Lady Killer",
         "description": "Dopo la morte violenta di un uomo di Lawrenceburg, Tennessee, gli investigatori devono stabilire se stiano cercando un sicario. Il sospetto nasce dal fatto che si dice che la vittima avesse legami con la mafia.",
-        "start": "2025-11-07T05:10:00.000+01:00",
-        "end": "2025-11-07T06:00:00.000+01:00",
+        "start": "2025-11-07T04:50:00.000+01:00",
+        "end": "2025-11-07T05:30:00.000+01:00",
         "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/266/p189681bh8bn_BannerL2_w1920.webp"
+      },
+      {
+        "title": "Alforno",
+        "description": "La fornista di questa puntata è l'ambasciatrice della tradizione pugliese Tamara Mitrangolo. Scopriamo se la sua cucina è più dolce o salata.",
+        "start": "2025-11-07T05:30:00.000+01:00",
+        "end": "2025-11-07T06:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/266/p28546216bh8aa_BannerL2_w1920.webp"
       },
       {
         "title": "Tg24 Mezz'ora",
