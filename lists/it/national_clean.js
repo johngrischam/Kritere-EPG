@@ -1,5 +1,5 @@
 // ====================================================================
-//  national_clean.js — Main list of Italian EPG sources (Phase 4)
+//  national_clean.js — Main list of Italian EPG sources (Phase 5)
 //  Author: KritereTV (clean implementation)
 // ====================================================================
 
@@ -8,9 +8,10 @@ import fetchRaiPlayEPG from "../../sources/it/raiplay_clean.js";
 import fetchSamsungEPG from "../../sources/it/samsungtvplus_clean.js";
 import fetchTivuEPG from "../../sources/it/tivu_clean.js";
 import fetchSuperGuidaEPG from "../../sources/it/superguidatv_clean.js";
+import fetchSkyEPG from "../../sources/it/sky_clean.js";
 
 // --------------------------------------------------------------------
-// List of Italian EPG sources
+// Unified list of Italian EPG sources
 // --------------------------------------------------------------------
 export default {
   blue: {
@@ -48,7 +49,12 @@ export default {
 
   superguidatv: {
     fetch: fetchSuperGuidaEPG,
-    channels: [8, 10, 12, 14, 20] // example IDs: Italia 1, Rete 4, La7, TV8, 20 Mediaset
+    channels: [8, 10, 12, 14, 20] // Italia 1, Rete 4, La7, TV8, 20 Mediaset
+  },
+
+  sky: {
+    fetch: fetchSkyEPG,
+    channels: [501, 102, 108, 109, 110] // e.g. Sky TG24, Sky Uno, Sky Cinema
   }
 };
 
