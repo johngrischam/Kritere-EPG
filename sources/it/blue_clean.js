@@ -1,109 +1,86 @@
 // ====================================================================
-//  blue_clean.js  —  Clean-room EPG fetcher for Blue.ch
-//  Author: KritereTV (clean implementation, no GPL code)
-//  --------------------------------------------------------------------
-//  Fetches program data for multiple channels from the public
-//  Blue.ch JSON service and returns times in Europe/Rome local time.
+// blue_clean.js — Blue.ch EPG (Zappr-style DOM + Luxon time conversion)
+// Author: KritereTV (clean implementation, DOM parsed with Linkedom)
+// Output: [{ id, name, logo, programs[] }]
 // ====================================================================
 
 import { DateTime } from "luxon";
+import { parseHTML } from "linkedom";
+// If Node < 18, uncomment:
+// import fetch from "node-fetch";
 
-const BLUE_BASE = "https://services.sg101.prd.sctv.ch";
-
-/**
- * Helper: safely parse to Luxon DateTime in Europe/Rome.
- */
-function toRome(isoString) {
-  try {
-    return DateTime.fromISO(isoString, { zone: "Europe/Rome" });
-  } catch {
-    return null;
-  }
-}
-
-/**
- * Returns an array of programs for a single Blue.ch channel.
- */
-async function fetchChannel(site_id) {
-  const today = DateTime.now().setZone("Europe/Rome");
-  const start = today.minus({ days: 1 }).toFormat("yyyyMMdd0000");
-  const end = today.plus({ days: 7 }).toFormat("yyyyMMdd0000");
-
-  const url = `${BLUE_BASE}/catalog/tv/channels/list/(ids=${site_id};start=${start};end=${end};level=normal)`;
-
-  const res = await fetch(url);
-  if (!res.ok) {
-    console.warn(`⚠️ Blue.ch ${site_id}: HTTP ${res.status}`);
-    return [];
-  }
-
-  const json = await res.json();
-  const items =
-    json?.Nodes?.Items?.[0]?.Content?.Nodes?.Items ||
-    json?.Nodes?.Items?.[0]?.Nodes?.Items ||
-    [];
-
-  const programs = [];
-
-  for (const entry of items) {
-    const avail = Array.isArray(entry?.Availabilities)
-      ? entry.Availabilities[0]
-      : null;
-
-    if (!avail) continue;
-
-    const startTime = toRome(avail.AvailabilityStart);
-    const endTime = toRome(avail.AvailabilityEnd);
-    if (!startTime || !endTime) continue;
-
-    const desc = entry?.Content?.Description || {};
-    const nodes = entry?.Content?.Nodes?.Items || [];
-
-    // Pick the best poster image
-    const preferred = ["Lane", "Stage", "Landscape"];
-    let poster = null;
-    for (const role of preferred) {
-      const found = nodes.find(
-        (n) => n?.Role === role && n?.ContentPath
-      );
-      if (found) {
-        poster = `${BLUE_BASE}/content/images/${found.ContentPath.trim()}_w1920.webp`;
-        break;
-      }
-    }
-
-    programs.push({
-      title: desc.Title || "Senza titolo",
-      description: desc.Summary || desc.ShortSummary || "",
-      start: startTime.toISO(),
-      end: endTime.toISO(),
-      poster,
-    });
-  }
-
-  return programs;
-}
-
-/**
- * Main entry: fetch EPG for multiple Blue.ch channels.
- * @param {Array<number>} channels
- * @returns {Object[]} Array of {id, name, programs}
- */
 export default async function fetchBlueEPG(channels) {
-  const results = [];
-  for (const id of channels) {
-    try {
-      const programs = await fetchChannel(id);
-      results.push({
-        id: String(id),
-        name: `Blue ${id}`,
-        programs,
-      });
-      console.log(`✅ Blue ${id}: ${programs.length} programs`);
-    } catch (e) {
-      console.warn(`❌ Blue ${id}: ${e.message}`);
-    }
+  const epg = [];
+
+  // 1️⃣ Fetch the official Blue.ch XML feed (same used by iptv-org)
+  const BLUE_XML =
+    "https://raw.githubusercontent.com/iptv-org/epg/refs/heads/master/sites/tv.blue.ch/tv.blue.ch.epg.xml";
+
+  const res = await fetch(BLUE_XML, {
+    headers: { "User-Agent": "kritere-epg/1.0" },
+  });
+  if (!res.ok) throw new Error(`Blue.ch XML fetch failed: ${res.status}`);
+  const xml = await res.text();
+
+  // 2️⃣ Parse XML via Linkedom (Zappr-style)
+  const { document } = parseHTML(xml);
+
+  // 3️⃣ Wildcard: if ["*"] expand to all channel ids present in <programme>
+  if (channels && channels[0] === "*") {
+    channels = [
+      ...new Set(
+        Array.from(document.querySelectorAll("programme"))
+          .map((p) => p.getAttribute("channel"))
+          .filter(Boolean)
+      ),
+    ];
   }
-  return results;
+
+  // 4️⃣ Build EPG per channel id
+  for (const id of channels) {
+    const chNode = document.querySelector(`channel[id="${id}"]`);
+    const name =
+      chNode?.querySelector("display-name")?.textContent?.trim() ||
+      `Blue ${id}`;
+    const logo =
+      chNode?.querySelector("icon")?.getAttribute("src")?.trim() || null;
+
+    const programs = [];
+    const progs = document.querySelectorAll(`programme[channel="${id}"]`);
+
+    for (const p of progs) {
+      const startRaw = p.getAttribute("start");
+      const stopRaw = p.getAttribute("stop");
+
+      // Blue.ch XML uses UTC timestamps: 20251105190000 +0000
+      const startDT = DateTime.fromFormat(startRaw, "yyyyMMddHHmmss +0000").setZone("Europe/Rome");
+      const endDT = DateTime.fromFormat(stopRaw, "yyyyMMddHHmmss +0000").setZone("Europe/Rome");
+
+      const titleEl = p.querySelector("title");
+      const descEl = p.querySelector("desc");
+      const iconEl = p.querySelector("icon");
+
+      const item = {
+        title: (titleEl?.textContent || "").trim() || "Senza titolo",
+        description: (descEl?.textContent || "").trim() || null,
+        start: startDT.toISO(),
+        end: endDT.toISO(),
+        poster: iconEl?.getAttribute("src")?.trim() || logo || null,
+      };
+
+      programs.push(item);
+    }
+
+    epg.push({
+      id,
+      name,
+      logo,
+      programs,
+    });
+
+    console.log(`✅ Blue.ch ${id}: ${programs.length} programmi`);
+  }
+
+  return epg;
 }
 
