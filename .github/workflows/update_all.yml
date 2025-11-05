@@ -20,7 +20,7 @@ jobs:
           node-version: "20"
 
       - name: 📦 Install dependencies
-        run: npm install luxon fast-xml-parser linkedom
+        run: npm install luxon linkedom
 
       - name: 🧠 Run merge_all_new.mjs
         run: node merge_all_new.mjs
