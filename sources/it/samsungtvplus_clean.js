@@ -1,96 +1,76 @@
 // ====================================================================
 // samsungtvplus_clean.js — Fetch EPG for Samsung TV Plus (Italy)
-// Clean-room version by KritereTV (no logger)
+// Same logic as merge_all.mjs Samsung section (Matthuisman XML source)
 // ====================================================================
 
-import { DateTime } from "luxon";
-// If you’re on Node < 18, uncomment next line:
+import { XMLParser } from "fast-xml-parser";
+// If Node < 18, uncomment the next line:
 // import fetch from "node-fetch";
 
-/**
- * Expand channels:
- * - ["*"] => fetches the full Italy channel list (it.channels.json)
- * - Otherwise returns the array as-is (but string-normalized)
- */
-async function expandChannels(channels) {
-  if (!channels || !channels.length) return [];
-  if (channels[0] !== "*") {
-    return channels.map(c => String(c).trim()).filter(Boolean);
-  }
-  try {
-    const listURL = "https://i.mjh.nz/SamsungTVPlus/it.channels.json";
-    const resp = await fetch(listURL);
-    if (!resp.ok) {
-      console.warn(`[SamsungTVPlus] Channel list fetch failed: ${resp.status}`);
-      return [];
-    }
-    const list = await resp.json();
-    // list items look like: { id, name, ... }
-    const ids = Array.from(new Set(list.map(ch => ch.id).filter(Boolean)));
-    if (!ids.length) {
-      console.warn("[SamsungTVPlus] Channel list empty.");
-    }
-    return ids;
-  } catch (e) {
-    console.error("[SamsungTVPlus] Channel list error:", e?.message || e);
-    return [];
-  }
+const SAMSUNG_URL =
+  "https://raw.githubusercontent.com/matthuisman/i.mjh.nz/refs/heads/master/SamsungTVPlus/it.xml";
+
+// Convert XMLTV time (e.g. "20251105060000 +0000") → ISO UTC
+function parseXmltvTimeToIso(str) {
+  if (!str) return null;
+  const match = str.match(/^(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})\s?([+\-]\d{4})?$/);
+  if (!match) return null;
+
+  const [_, y, m, d, H, M, S] = match;
+  const timestampUTC = Date.UTC(
+    parseInt(y),
+    parseInt(m) - 1, // month 0-indexed
+    parseInt(d),
+    parseInt(H),
+    parseInt(M),
+    parseInt(S)
+  );
+  return new Date(timestampUTC).toISOString();
 }
 
 export default async function fetchEPG(channels) {
   const epg = {};
-  const tz = "Europe/Rome";
-  const now = DateTime.now().setZone(tz);
 
-  // 1) Resolve channels (supports "*")
-  const resolved = await expandChannels(channels);
-  if (!resolved.length) return epg;
-
-  // 2) Prepare tasks (parallel fetch per channel)
-  const tasks = resolved.map(async (channelId) => {
-    epg[channelId] = [];
-    const url = `https://i.mjh.nz/SamsungTVPlus/it/${encodeURIComponent(channelId)}.epg.json`;
-
-    try {
-      const res = await fetch(url);
-      if (!res.ok) {
-        // 404 just means that channel has no JSON EPG file
-        if (res.status !== 404) {
-          console.warn(`[SamsungTVPlus] ${channelId} -> ${res.status}`);
-        }
-        return;
-      }
-
-      const programs = await res.json();
-      if (!Array.isArray(programs) || !programs.length) {
-        // No programs for this channel
-        return;
-      }
-
-      // IMPORTANT: Don’t over-filter — just normalize & push.
-      // (Your previous “end > today” filter could drop everything.)
-      for (const p of programs) {
-        // Defensive checks
-        if (!p.start || !p.stop) continue;
-
-        const start = DateTime.fromISO(p.start, { zone: tz });
-        const end = DateTime.fromISO(p.stop, { zone: tz });
-
-        epg[channelId].push({
-          title: (p.title || "").trim() || null,
-          description: (p.desc || "").trim() || null,
-          start: start.isValid ? start.toISO() : p.start,
-          end: end.isValid ? end.toISO() : p.stop,
-          poster: (p.icon || "").trim() || null
-        });
-      }
-    } catch (err) {
-      console.error(`[SamsungTVPlus] Error fetching ${channelId}:`, err?.message || err);
-    }
+  // 1️⃣ Fetch XML from GitHub
+  const res = await fetch(SAMSUNG_URL, {
+    headers: { "User-Agent": "kritere-backend/1.0" },
   });
+  if (!res.ok) throw new Error(`SamsungTVPlus XML fetch failed: ${res.status}`);
+  const xmlText = await res.text();
 
-  // 3) Run all fetches
-  await Promise.allSettled(tasks);
+  // 2️⃣ Parse XML
+  const parser = new XMLParser({ ignoreAttributes: false });
+  const xml = parser.parse(xmlText);
+
+  const allChannels = xml.tv?.channel || [];
+  const allPrograms = xml.tv?.programme || [];
+
+  // 3️⃣ Expand wildcard “*” to all channel IDs
+  if (channels[0] === "*") {
+    channels = allChannels.map((ch) => ch["@_id"]).filter(Boolean);
+  }
+
+  // 4️⃣ Build EPG object per channel
+  for (const id of channels) {
+    epg[id] = [];
+
+    const ch = allChannels.find((c) => c["@_id"] === id);
+    const logo = ch?.icon?.["@_src"] || null;
+
+    const progs = allPrograms
+      .filter((p) => p["@_channel"] === id)
+      .map((p) => ({
+        title: p.title?.["#text"] || p.title || "",
+        description: p.desc?.["#text"] || p.desc || "",
+        start: parseXmltvTimeToIso(p["@_start"]),
+        end: parseXmltvTimeToIso(p["@_stop"]),
+        poster: p.icon?.["@_src"] || logo,
+      }))
+      .filter((p) => p.start && p.end);
+
+    epg[id] = progs;
+  }
 
   return epg;
 }
+
