@@ -1,76 +1,69 @@
 // ====================================================================
-// samsungtvplus_clean.js — Fetch EPG for Samsung TV Plus (Italy)
-// Same logic as merge_all.mjs Samsung section (Matthuisman XML source)
+// samsungtvplus_clean.js — Samsung TV Plus (Italy) via i.mjh.nz XML
+// Zappr-style: Luxon + Linkedom, no external logger
 // ====================================================================
 
-import { XMLParser } from "fast-xml-parser";
-// If Node < 18, uncomment the next line:
+import { DateTime } from "luxon";
+import { parseHTML } from "linkedom";
+// If you're on Node < 18, uncomment:
 // import fetch from "node-fetch";
-
-const SAMSUNG_URL =
-  "https://raw.githubusercontent.com/matthuisman/i.mjh.nz/refs/heads/master/SamsungTVPlus/it.xml";
-
-// Convert XMLTV time (e.g. "20251105060000 +0000") → ISO UTC
-function parseXmltvTimeToIso(str) {
-  if (!str) return null;
-  const match = str.match(/^(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})\s?([+\-]\d{4})?$/);
-  if (!match) return null;
-
-  const [_, y, m, d, H, M, S] = match;
-  const timestampUTC = Date.UTC(
-    parseInt(y),
-    parseInt(m) - 1, // month 0-indexed
-    parseInt(d),
-    parseInt(H),
-    parseInt(M),
-    parseInt(S)
-  );
-  return new Date(timestampUTC).toISOString();
-}
 
 export default async function fetchEPG(channels) {
   const epg = {};
 
-  // 1️⃣ Fetch XML from GitHub
-  const res = await fetch(SAMSUNG_URL, {
-    headers: { "User-Agent": "kritere-backend/1.0" },
+  // 1) Fetch the single XMLTV file (same source Zappr relies on)
+  const res = await fetch("https://i.mjh.nz/SamsungTVPlus/it.xml", {
+    headers: { "User-Agent": "kritere-epg/1.0" }
   });
   if (!res.ok) throw new Error(`SamsungTVPlus XML fetch failed: ${res.status}`);
-  const xmlText = await res.text();
+  const xml = await res.text();
 
-  // 2️⃣ Parse XML
-  const parser = new XMLParser({ ignoreAttributes: false });
-  const xml = parser.parse(xmlText);
+  // 2) Parse XML with Linkedom (Zappr-style DOM querying)
+  const { document } = parseHTML(xml);
 
-  const allChannels = xml.tv?.channel || [];
-  const allPrograms = xml.tv?.programme || [];
-
-  // 3️⃣ Expand wildcard “*” to all channel IDs
-  if (channels[0] === "*") {
-    channels = allChannels.map((ch) => ch["@_id"]).filter(Boolean);
+  // 3) Wildcard: expand "*" to every channel id present in <programme>
+  if (channels && channels[0] === "*") {
+    channels = [...new Set(
+      Array.from(document.querySelectorAll("programme"))
+        .map(el => el.getAttribute("channel"))
+        .filter(Boolean)
+    )];
   }
 
-  // 4️⃣ Build EPG object per channel
+  // 4) Build EPG per requested channel
   for (const id of channels) {
-    epg[id] = [];
+    const list = [];
+    const nodes = document.querySelectorAll(`programme[channel="${id}"]`);
 
-    const ch = allChannels.find((c) => c["@_id"] === id);
-    const logo = ch?.icon?.["@_src"] || null;
+    for (const entry of nodes) {
+      const startRaw = entry.getAttribute("start"); // e.g. 20251105060000 +0000
+      const stopRaw  = entry.getAttribute("stop");
 
-    const progs = allPrograms
-      .filter((p) => p["@_channel"] === id)
-      .map((p) => ({
-        title: p.title?.["#text"] || p.title || "",
-        description: p.desc?.["#text"] || p.desc || "",
-        start: parseXmltvTimeToIso(p["@_start"]),
-        end: parseXmltvTimeToIso(p["@_stop"]),
-        poster: p.icon?.["@_src"] || logo,
-      }))
-      .filter((p) => p.start && p.end);
+      // XML feed uses "+0000". Parse as literal and convert to Europe/Rome.
+      // (Matches your Zappr-style code path.)
+      const startDT = DateTime.fromFormat(startRaw, "yyyyMMddHHmmss +0000").setZone("Europe/Rome");
+      const endDT   = DateTime.fromFormat(stopRaw,  "yyyyMMddHHmmss +0000").setZone("Europe/Rome");
 
-    epg[id] = progs;
+      const titleEl = entry.querySelector("title");
+      const subEl   = entry.querySelector("sub-title");
+      const descEl  = entry.querySelector("desc");
+      const iconEl  = entry.querySelector("icon");
+
+      const item = {
+        name: (titleEl?.textContent || "").trim(),
+        startTime: { unix: startDT.ts, iso: startDT.toISO() },
+        endTime:   { unix: endDT.ts,   iso: endDT.toISO() }
+      };
+      if (subEl?.textContent?.trim())  item.subtitle    = subEl.textContent.trim();
+      if (descEl?.textContent?.trim()) item.description = descEl.textContent.trim();
+      const iconSrc = iconEl?.getAttribute("src");
+      if (iconSrc && iconSrc.trim())   item.image       = iconSrc.trim();
+
+      list.push(item);
+    }
+
+    epg[id] = list;
   }
 
   return epg;
 }
-
