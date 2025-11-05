@@ -32,14 +32,9 @@ export default {
   },
 
   samsungtvplus: {
-    fetch: fetchSamsungEPG,
-    channels: [
-      "WarnerTV.it",
-      "RadioItaliaTV.it",
-      "RaiScuola.it",
-      "SuperTennis.it",
-    ],
-  },
+  fetch: fetchSamsungEPG,
+  channels: ["*"],   // expands to every <programme channel="..."> id
+},
 
   tivu: { fetch: fetchTivuEPG, channels: [130, 136, 255] },
 
