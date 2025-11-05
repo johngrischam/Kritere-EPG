@@ -1,27 +1,27 @@
 // ====================================================================
 // samsungtvplus_clean.js — Samsung TV Plus (Italy) via i.mjh.nz XML
-// Zappr-style: Luxon + Linkedom, no external logger
+// Zappr-style but outputs [{ id, name, logo, programs }] for merge_all
 // ====================================================================
 
 import { DateTime } from "luxon";
 import { parseHTML } from "linkedom";
-// If you're on Node < 18, uncomment:
+// If Node < 18, uncomment the next line:
 // import fetch from "node-fetch";
 
 export default async function fetchEPG(channels) {
   const epg = {};
 
-  // 1) Fetch the single XMLTV file (same source Zappr relies on)
+  // 1️⃣ Fetch single XML feed (Zappr source)
   const res = await fetch("https://i.mjh.nz/SamsungTVPlus/it.xml", {
-    headers: { "User-Agent": "kritere-epg/1.0" }
+    headers: { "User-Agent": "kritere-epg/1.0" },
   });
   if (!res.ok) throw new Error(`SamsungTVPlus XML fetch failed: ${res.status}`);
   const xml = await res.text();
 
-  // 2) Parse XML with Linkedom (Zappr-style DOM querying)
+  // 2️⃣ Parse XML
   const { document } = parseHTML(xml);
 
-  // 3) Wildcard: expand "*" to every channel id present in <programme>
+  // 3️⃣ Wildcard expansion
   if (channels && channels[0] === "*") {
     channels = [...new Set(
       Array.from(document.querySelectorAll("programme"))
@@ -30,17 +30,15 @@ export default async function fetchEPG(channels) {
     )];
   }
 
-  // 4) Build EPG per requested channel
+  // 4️⃣ Build per-channel program list
   for (const id of channels) {
-    const list = [];
+    const programs = [];
     const nodes = document.querySelectorAll(`programme[channel="${id}"]`);
 
     for (const entry of nodes) {
-      const startRaw = entry.getAttribute("start"); // e.g. 20251105060000 +0000
+      const startRaw = entry.getAttribute("start");
       const stopRaw  = entry.getAttribute("stop");
 
-      // XML feed uses "+0000". Parse as literal and convert to Europe/Rome.
-      // (Matches your Zappr-style code path.)
       const startDT = DateTime.fromFormat(startRaw, "yyyyMMddHHmmss +0000").setZone("Europe/Rome");
       const endDT   = DateTime.fromFormat(stopRaw,  "yyyyMMddHHmmss +0000").setZone("Europe/Rome");
 
@@ -50,20 +48,38 @@ export default async function fetchEPG(channels) {
       const iconEl  = entry.querySelector("icon");
 
       const item = {
-        name: (titleEl?.textContent || "").trim(),
-        startTime: { unix: startDT.ts, iso: startDT.toISO() },
-        endTime:   { unix: endDT.ts,   iso: endDT.toISO() }
+        title: (titleEl?.textContent || "").trim(),
+        description: (descEl?.textContent || "").trim() || null,
+        start: startDT.toISO(),
+        end: endDT.toISO(),
+        poster: (iconEl?.getAttribute("src") || "").trim() || null,
       };
-      if (subEl?.textContent?.trim())  item.subtitle    = subEl.textContent.trim();
-      if (descEl?.textContent?.trim()) item.description = descEl.textContent.trim();
-      const iconSrc = iconEl?.getAttribute("src");
-      if (iconSrc && iconSrc.trim())   item.image       = iconSrc.trim();
+      if (subEl?.textContent?.trim()) item.subtitle = subEl.textContent.trim();
 
-      list.push(item);
+      programs.push(item);
     }
 
-    epg[id] = list;
+    epg[id] = programs;
   }
 
-  return epg;
+  // 5️⃣ Convert EPG object → array [{ id, name, logo, programs }]
+  const result = [];
+
+  for (const id of Object.keys(epg)) {
+    const chNode = document.querySelector(`channel[id="${id}"]`);
+    const name =
+      chNode?.querySelector("display-name")?.textContent?.trim() || id;
+    const logo =
+      chNode?.querySelector("icon")?.getAttribute("src")?.trim() || null;
+
+    result.push({
+      id,
+      name,
+      logo,
+      programs: epg[id],
+    });
+  }
+
+  return result;
 }
+
