@@ -21242,5 +21242,30 @@
     "id": "20",
     "name": "SuperGuidaTV 20",
     "programs": []
+  },
+  {
+    "id": "501",
+    "name": "Sky 501",
+    "programs": []
+  },
+  {
+    "id": "102",
+    "name": "Sky 102",
+    "programs": []
+  },
+  {
+    "id": "108",
+    "name": "Sky 108",
+    "programs": []
+  },
+  {
+    "id": "109",
+    "name": "Sky 109",
+    "programs": []
+  },
+  {
+    "id": "110",
+    "name": "Sky 110",
+    "programs": []
   }
 ]
