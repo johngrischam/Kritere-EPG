@@ -21322,5 +21322,45 @@
     "id": "tgcom24",
     "name": "Mediaset tgcom24",
     "programs": []
+  },
+  {
+    "id": "tv8",
+    "name": "OggiInTV tv8",
+    "programs": []
+  },
+  {
+    "id": "real-time",
+    "name": "OggiInTV real-time",
+    "programs": []
+  },
+  {
+    "id": "cielo",
+    "name": "OggiInTV cielo",
+    "programs": []
+  },
+  {
+    "id": "giallo",
+    "name": "OggiInTV giallo",
+    "programs": []
+  },
+  {
+    "id": "motortrend",
+    "name": "OggiInTV motortrend",
+    "programs": []
+  },
+  {
+    "id": "nove",
+    "name": "OggiInTV nove",
+    "programs": []
+  },
+  {
+    "id": "la7d",
+    "name": "OggiInTV la7d",
+    "programs": []
+  },
+  {
+    "id": "twentyseven",
+    "name": "OggiInTV twentyseven",
+    "programs": []
   }
 ]
