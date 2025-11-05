@@ -1,5 +1,5 @@
 // ====================================================================
-//  national_clean.js — Main list of Italian EPG sources (Phase 6)
+//  national_clean.js — Main list of Italian EPG sources (Phase 7)
 //  Author: KritereTV (clean implementation)
 // ====================================================================
 
@@ -10,15 +10,13 @@ import fetchTivuEPG from "../../sources/it/tivu_clean.js";
 import fetchSuperGuidaEPG from "../../sources/it/superguidatv_clean.js";
 import fetchSkyEPG from "../../sources/it/sky_clean.js";
 import fetchMediasetEPG from "../../sources/it/mediaset_clean.js";
+import fetchOggiInTVEPG from "../../sources/it/oggiintv_clean.js";
 
 // --------------------------------------------------------------------
-// Unified list of Italian EPG sources
+// Unified list of Italian EPG sources (8 total)
 // --------------------------------------------------------------------
 export default {
-  blue: {
-    fetch: fetchBlueEPG,
-    channels: [348, 79, 215, 237, 266, 118]
-  },
+  blue: { fetch: fetchBlueEPG, channels: [348, 79, 215, 237, 266, 118] },
 
   raiplay: {
     fetch: fetchRaiPlayEPG,
@@ -29,8 +27,8 @@ export default {
       "rai-4",
       "rai-5",
       "rai-news-24",
-      "rai-sport"
-    ]
+      "rai-sport",
+    ],
   },
 
   samsungtvplus: {
@@ -39,23 +37,20 @@ export default {
       "WarnerTV.it",
       "RadioItaliaTV.it",
       "RaiScuola.it",
-      "SuperTennis.it"
-    ]
+      "SuperTennis.it",
+    ],
   },
 
-  tivu: {
-    fetch: fetchTivuEPG,
-    channels: [130, 136, 255]
-  },
+  tivu: { fetch: fetchTivuEPG, channels: [130, 136, 255] },
 
   superguidatv: {
     fetch: fetchSuperGuidaEPG,
-    channels: [8, 10, 12, 14, 20] // Italia1, Rete4, La7, TV8, 20
+    channels: [8, 10, 12, 14, 20],
   },
 
   sky: {
     fetch: fetchSkyEPG,
-    channels: [501, 102, 108, 109, 110] // Sky TG24, Sky Uno, etc.
+    channels: [501, 102, 108, 109, 110],
   },
 
   mediaset: {
@@ -71,8 +66,22 @@ export default {
       "cine34",
       "focus",
       "extra",
-      "tgcom24"
-    ]
-  }
+      "tgcom24",
+    ],
+  },
+
+  oggiintv: {
+    fetch: fetchOggiInTVEPG,
+    channels: [
+      "tv8",
+      "real-time",
+      "cielo",
+      "giallo",
+      "motortrend",
+      "nove",
+      "la7d",
+      "twentyseven",
+    ],
+  },
 };
 
