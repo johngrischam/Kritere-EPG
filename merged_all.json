@@ -21267,5 +21267,60 @@
     "id": "110",
     "name": "Sky 110",
     "programs": []
+  },
+  {
+    "id": "canale5",
+    "name": "Mediaset canale5",
+    "programs": []
+  },
+  {
+    "id": "italia1",
+    "name": "Mediaset italia1",
+    "programs": []
+  },
+  {
+    "id": "rete4",
+    "name": "Mediaset rete4",
+    "programs": []
+  },
+  {
+    "id": "20",
+    "name": "Mediaset 20",
+    "programs": []
+  },
+  {
+    "id": "la5",
+    "name": "Mediaset la5",
+    "programs": []
+  },
+  {
+    "id": "topcrime",
+    "name": "Mediaset topcrime",
+    "programs": []
+  },
+  {
+    "id": "iris",
+    "name": "Mediaset iris",
+    "programs": []
+  },
+  {
+    "id": "cine34",
+    "name": "Mediaset cine34",
+    "programs": []
+  },
+  {
+    "id": "focus",
+    "name": "Mediaset focus",
+    "programs": []
+  },
+  {
+    "id": "extra",
+    "name": "Mediaset extra",
+    "programs": []
+  },
+  {
+    "id": "tgcom24",
+    "name": "Mediaset tgcom24",
+    "programs": []
   }
 ]
