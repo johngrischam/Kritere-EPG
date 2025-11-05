@@ -7,8 +7,8 @@
 //  and OggiInTV.
 // ====================================================================
 
-import fetchBlueEPG from "../../../sources/it/blue_clean.js";
-import fetchRaiPlayEPG from "../../../sources/it/raiplay_clean.js";
+import fetchBlueEPG from "../../sources/it/blue_clean.js";
+import fetchRaiPlayEPG from "../../sources/it/raiplay_clean.js";
 
 // --------------------------------------------------------------------
 // For now, include only Blue.ch and RaiPlay.
