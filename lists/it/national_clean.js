@@ -16,7 +16,7 @@ import fetchOggiInTVEPG from "../../sources/it/oggiintv_clean.js";
 // Unified list of Italian EPG sources (8 total)
 // --------------------------------------------------------------------
 export default {
-  blue: { fetch: fetchBlueEPG, channels: [1287, 1123, 348, 79, 215, 237, 266, 118,332,334,] },
+  blue: { fetch: fetchBlueEPG, channels: [1287, 1123, 348, 79, 215, 237, 266, 118, 332, 334] },
 
   raiplay: {
     fetch: fetchRaiPlayEPG,
@@ -42,7 +42,7 @@ export default {
 
   superguidatv: {
     fetch: fetchSuperGuidaEPG,
-    channels: [197, 8, 10, 12, 14, 20],
+    channels: [229, 228, 197, 8, 10, 12, 14, 20],
   },
 
   sky: {
