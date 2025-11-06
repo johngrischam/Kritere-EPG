@@ -1,12 +1,13 @@
 // ====================================================================
 //  superguidatv_clean.js — SuperGuidaTV EPG (Zappr-style + Luxon)
-//  Author: KritereTV (final hybrid build + enhanced poster + channel icon fallback)
-//  Output: [{ id, name, programs[] }]
+//  Author: KritereTV (classic logic: 1-day, channelId[], ct-ver=1is)
+//  Output: { [channelId]: [programs[]] }
 // ====================================================================
 
 import { DateTime } from "luxon";
+import log from "../../utils/logger";
 
-// --- Internal helper: random generator (matches Zappr's style) ---
+// --- Helper: random generator (Zappr-style) ---
 function randomString(length, hex = false) {
   const chars = hex
     ? "abcdef1234567890"
@@ -16,154 +17,149 @@ function randomString(length, hex = false) {
 
 // --- Fetch temporary guest token (valid ~15 min) ---
 async function getGuestToken() {
-  const token = `${Math.floor(Date.now() / 1000)}-${randomString(43)}=`;
-  const body = {
-    client_id: randomString(22),
-    device_id: `AID_${randomString(16, true)}`
-  };
-
+  const token = `${Math.floor(DateTime.now().toSeconds())}-${randomString(43)}=`;
   const res = await fetch("https://api-ng.superguidatv.it/v3/oauth/guest", {
     method: "POST",
     headers: {
       "x-client-token": token,
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(body)
+    body: JSON.stringify({
+      client_id: randomString(22),
+      device_id: `AID_${randomString(16, true)}`
+    })
   });
 
-  if (!res.ok) throw new Error(`Guest token fetch failed (${res.status})`);
   const json = await res.json();
-  console.log("✅ Access token received.");
-  return { access: json.access_token, token };
+  return json.access_token;
 }
 
-// --- Poster resolver (checks multiple fields) ---
-function resolvePoster(entry) {
-  const candidates = [
-    entry?.event?.backdropUrl,
-    entry?.event?.coverUrl,
-    entry?.event?.imageUrl,
-    entry?.event?.images?.[0]?.url,
-    entry?.program?.backdropUrl,
-    entry?.program?.coverUrl,
-    entry?.program?.imageUrl,
-    entry?.program?.images?.[0]?.url,
-    entry?.serie?.backdropUrl,
-    entry?.serie?.coverUrl,
-    entry?.serie?.imageUrl,
-    entry?.serie?.images?.[0]?.url
-  ];
-  const url = candidates.find(u => typeof u === "string" && u.length > 10);
-  if (!url) return null;
-  return url.startsWith("/") ? "https://cdn.superguidatv.it" + url : url;
-}
+// --- Main: fetch one day sequentially for each channelId ---
+export default async function fetchEPG(channels) {
+  const accessToken = await getGuestToken();
+  let epg = {};
 
-// --- Channel icon resolver (used as fallback) ---
-function resolveChannelIcon(channelData) {
-  const candidates = [
-    channelData?.logo,
-    channelData?.imageUrl,
-    channelData?.images?.[0]?.url
-  ];
-  const url = candidates.find(u => typeof u === "string" && u.length > 10);
-  if (!url) return null;
-  return url.startsWith("/") ? "https://cdn.superguidatv.it" + url : url;
-}
+  for (const channel in channels) {
+    const ch = channels[channel];
+    epg[ch] = [];
+    let lastEntryEndDate;
 
-// --- Try fetching with guid[] first, fallback to channelId[] if needed ---
-async function fetchDay(channelGuid, dateRome, auth) {
-  const startDate = dateRome.toFormat("yyyy-MM-dd");
-  const endDate = dateRome.plus({ days: 1 }).toFormat("yyyy-MM-dd");
+    // ✅ 1-day only
+    const startDate = DateTime.now().setZone("Europe/Rome").toFormat("yyyy-MM-dd");
+    const endDate = DateTime.now().setZone("Europe/Rome").plus({ days: 1 }).toFormat("yyyy-MM-dd");
 
-  async function tryFetch(paramType) {
-    const url =
-      `https://api-ng.superguidatv.it/v3/channels-events?` +
-      `startDate=${startDate}T00:00:00&endDate=${endDate}T23:59:59` +
-      `&orderBy=channelNumber&${paramType}[]=${channelGuid}` +
-      `&ct-ver=4.0.9&bld=5504148&plt=ANDROID&uid=AID1234567890&pkg=com.idea.superguidatv`;
+    log("generating", { source: "superguidatv", channel: ch, day: `${startDate} - ${endDate}` });
 
-    const res = await fetch(url, {
-      headers: {
-        "User-Agent": "SuperGuidaTV/4.0.9 (Android; SDK 33; Device Google Pixel)",
-        "x-client-token": auth.token,
-        Authorization: `Bearer ${auth.access}`
-      }
-    });
+    try {
+      const res = await fetch(
+        `https://api-ng.superguidatv.it/v3/channels-events?startDate=${startDate}T00:00:00&endDate=${endDate}T23:59:59&orderBy=channelNumber&channelId[]=${ch}&ct-ver=1is&bld=5504148&plt=ANDROID`,
+        {
+          headers: {
+            "x-client-token": `${Math.floor(DateTime.now().toSeconds())}-${randomString(43)}=`,
+            Authorization: `Bearer ${accessToken}`
+          }
+        }
+      );
 
-    if (!res.ok) return { status: res.status, data: null };
+      const json = await res.json();
+      if (!json?.[0]?.events) continue;
 
-    const json = await res.json();
-    if (!json?.[0]?.events?.length) return { status: res.status, data: null };
-    return { status: res.status, data: json };
-  }
+      epg[ch] = [
+        ...epg[ch],
+        ...json[0].events.flatMap((entry, index) => {
+          const e = entry.event;
+          const startTime = DateTime.fromISO(e.startDate);
+          const endTime = DateTime.fromISO(e.endDate);
+          if (!startTime.isValid || !endTime.isValid) return [];
 
-  // --- Primary: guid[] ---
-  let result = await tryFetch("guid");
+          if ((lastEntryEndDate && startTime.ts > lastEntryEndDate) || lastEntryEndDate !== endTime.ts) {
+            const today = DateTime.now().setZone("Europe/Rome").startOf("day");
+            if (today.ts > endTime.ts) return [];
 
-  // --- Fallback: channelId[] ---
-  if (!result.data && (result.status === 401 || result.status === 404 || result.status === 500)) {
-    console.warn(`⚠️ Fallback to channelId[] for ${channelGuid}`);
-    result = await tryFetch("channelId");
-  }
+            let name =
+              e.title === e.title.toLowerCase()
+                ? e.title
+                    .split(" ")
+                    .map(el => el.charAt(0).toUpperCase() + el.slice(1))
+                    .join(" ")
+                : e.title;
 
-  const json = result.data;
-  if (!json?.[0]?.events) return [];
+            let result = {
+              name,
+              startTime: {
+                unix: startTime.ts,
+                iso: startTime.toISO()
+              },
+              endTime: {
+                unix: endTime.ts,
+                iso: endTime.toISO()
+              }
+            };
 
-  const channelIcon = resolveChannelIcon(json[0]?.channel);
-  const programs = [];
+            // description
+            if (e.story && e.story.trim()) {
+              const story = e.story.trim();
+              result.description =
+                story[0] === story[0].toLowerCase()
+                  ? story[0].toUpperCase() + story.slice(1)
+                  : story;
+            }
 
-  for (const entry of json[0].events) {
-    const e = entry.event;
-    if (!e?.startDate || !e?.endDate) continue;
+            // ✅ limited image fields
+            if (entry.serie) {
+              if (entry.serie.backdropUrl || entry.serie.coverUrl) {
+                result.image = entry.serie.backdropUrl || entry.serie.coverUrl;
+              }
+            } else if (entry.program) {
+              if (entry.program.backdropUrl || entry.program.coverUrl) {
+                result.image = entry.program.backdropUrl || entry.program.coverUrl;
+              }
+            }
 
-    const start = DateTime.fromISO(e.startDate, { zone: "Europe/Rome" });
-    const end = DateTime.fromISO(e.endDate, { zone: "Europe/Rome" });
-    if (!start.isValid || !end.isValid) continue;
+            // Fill "Programmazione non disponibile"
+            if (lastEntryEndDate && index !== 0 && startTime.ts !== lastEntryEndDate) {
+              result = [
+                {
+                  name: "Programmazione non disponibile",
+                  startTime: {
+                    unix: DateTime.fromMillis(lastEntryEndDate).ts,
+                    iso: DateTime.fromMillis(lastEntryEndDate).toISO()
+                  },
+                  endTime: {
+                    unix: startTime.ts,
+                    iso: startTime.toISO()
+                  }
+                },
+                result
+              ];
+            }
 
-    const poster = resolvePoster(entry) || channelIcon;
+            lastEntryEndDate = endTime.ts;
+            return result;
+          } else return [];
+        })
+      ];
 
-    programs.push({
-      title: e.title || "Senza titolo",
-      description: e.story || null,
-      start: start.toISO(),
-      end: end.toISO(),
-      poster
-    });
-  }
-
-  return programs;
-}
-
-// --- Main entry: fetch multiple channels concurrently (limit=3, 1 day only) ---
-export default async function fetchSuperGuidaEPG(channels) {
-  const results = [];
-  const today = DateTime.now().setZone("Europe/Rome").startOf("day");
-  const auth = await getGuestToken();
-
-  const CONCURRENCY = 3;
-  const queue = [...channels];
-
-  async function worker() {
-    while (queue.length) {
-      const id = queue.shift();
-
-      // Fetch only today's EPG
-      const programs = await fetchDay(id, today, auth);
-
-      results.push({
-        id: String(id),
-        name: `SuperGuidaTV ${id}`,
-        programs
+      // ✅ duplicate filtering
+      const seenStarts = new Set();
+      const seenEnds = new Set();
+      epg[ch] = epg[ch].filter(ev => {
+        const start = ev.startTime?.unix;
+        const end = ev.endTime?.unix;
+        if (!start || !end) return false;
+        if (seenStarts.has(start) || seenEnds.has(end)) return false;
+        seenStarts.add(start);
+        seenEnds.add(end);
+        return true;
       });
 
-      console.log(`✅ SuperGuidaTV ${id}: ${programs.length} programs`);
+      log("generating-done", { source: "superguidatv", channel: ch, day: `${startDate} - ${endDate}` });
+    } catch (err) {
+      log("generating-fail", { source: "superguidatv", channel: ch, error: err.message });
     }
+
+    log("spacer", { width: 89 });
   }
 
-  await Promise.all(
-    Array.from({ length: Math.min(CONCURRENCY, channels.length) }, () => worker())
-  );
-
-  return results;
+  return epg;
 }
-
