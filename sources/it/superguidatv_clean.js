@@ -79,10 +79,12 @@ async function fetchDay(channelGuid, dateRome, auth) {
     const url =
       `https://api-ng.superguidatv.it/v3/channels-events?` +
       `startDate=${startDate}T00:00:00&endDate=${endDate}T23:59:59` +
-      `&orderBy=channelNumber&${paramType}[]=${channelGuid}&ct-ver=1is&bld=5504148&plt=ANDROID`;
+      `&orderBy=channelNumber&${paramType}[]=${channelGuid}` +
+      `&ct-ver=4.0.9&bld=5504148&plt=ANDROID&uid=AID1234567890&pkg=com.idea.superguidatv`;
 
     const res = await fetch(url, {
       headers: {
+        "User-Agent": "SuperGuidaTV/4.0.9 (Android; SDK 33; Device Google Pixel)",
         "x-client-token": auth.token,
         Authorization: `Bearer ${auth.access}`
       }
@@ -132,7 +134,7 @@ async function fetchDay(channelGuid, dateRome, auth) {
   return programs;
 }
 
-// --- Main entry: fetch multiple channels concurrently (limit=3) ---
+// --- Main entry: fetch multiple channels concurrently (limit=3, 1 day only) ---
 export default async function fetchSuperGuidaEPG(channels) {
   const results = [];
   const today = DateTime.now().setZone("Europe/Rome").startOf("day");
@@ -144,21 +146,17 @@ export default async function fetchSuperGuidaEPG(channels) {
   async function worker() {
     while (queue.length) {
       const id = queue.shift();
-      const all = [];
 
-      for (let i = 0; i < 7; i++) {
-        const date = today.plus({ days: i });
-        const dayPrograms = await fetchDay(id, date, auth);
-        all.push(...dayPrograms);
-      }
+      // Fetch only today's EPG
+      const programs = await fetchDay(id, today, auth);
 
       results.push({
         id: String(id),
         name: `SuperGuidaTV ${id}`,
-        programs: all
+        programs
       });
 
-      console.log(`✅ SuperGuidaTV ${id}: ${all.length} programs`);
+      console.log(`✅ SuperGuidaTV ${id}: ${programs.length} programs`);
     }
   }
 
@@ -168,3 +166,4 @@ export default async function fetchSuperGuidaEPG(channels) {
 
   return results;
 }
+
