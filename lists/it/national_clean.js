@@ -11,21 +11,29 @@ import fetchSuperGuidaEPG from "../../sources/it/superguidatv_clean.js";
 // Unified list of Italian EPG sources (3 total, simplified)
 // --------------------------------------------------------------------
 export default {
-  // --- Blue.ch Group A: first 15 channels ---
+  // --- Blue.ch Group A ---
   blue_a: {
     fetch: fetchBlueEPG,
     channels: [
       2064, 2015, 1948, 1665, 1386,
-      1379, 1346, 1287, 1123, 613,
-      393, 357, 356, 348, 346, 338, 334
+      1379, 1346, 1287, 1123, 613
     ],
   },
 
-  // --- Blue.ch Group B: remaining 15 channels ---
+  // --- Blue.ch Group B ---
   blue_b: {
     fetch: fetchBlueEPG,
     channels: [
-      332, 329, 328, 327, 266, 257, 243, 239,
+      393, 357, 356, 348, 346,
+      338, 334, 332, 329, 328
+    ],
+  },
+
+  // --- Blue.ch Group C ---
+  blue_c: {
+    fetch: fetchBlueEPG,
+    channels: [
+      327, 266, 257, 243, 239,
       237, 216, 215, 214, 191,
       118, 96, 79, 51
     ],
