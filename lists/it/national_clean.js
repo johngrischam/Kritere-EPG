@@ -47,8 +47,12 @@ export default {
 
   // --- SuperGuidaTV: Sky / Pay-TV channels only ---
   superguidatv: {
-    fetch: fetchSuperGuidaEPG,
-    channels: [102, 105, 106, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 141, 142, 145, 146], 
-  },
+  fetch: fetchSuperGuidaEPG,
+  channels: [
+    102, 105, 106, 107, 108, 109, 110, 111,
+    112, 113, 114, 115, 116, 117, 145, 146,
+    584, 585
+  ]
+},
 };
 
