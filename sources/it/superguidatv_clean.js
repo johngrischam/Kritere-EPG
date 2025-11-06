@@ -1,6 +1,6 @@
 // ====================================================================
 //  superguidatv_clean.js — SuperGuidaTV EPG (Zappr-style + Luxon)
-//  Author: KritereTV (stable build with channelId[] support + poster resolver)
+//  Author: KritereTV (final hybrid build: guid[] primary, channelId[] fallback)
 //  Output: [{ id, name, programs[] }]
 // ====================================================================
 
@@ -53,27 +53,41 @@ function resolvePoster(entry) {
   return url.startsWith("/") ? "https://cdn.superguidatv.it" + url : url;
 }
 
-// --- Fetch 1 day's EPG for a single channelId ---
-async function fetchDay(channelId, dateRome, auth) {
+// --- Try fetching with guid[] first, fallback to channelId[] if needed ---
+async function fetchDay(channelGuid, dateRome, auth) {
   const startDate = dateRome.toFormat("yyyy-MM-dd");
   const endDate = dateRome.plus({ days: 1 }).toFormat("yyyy-MM-dd");
-  const url = `https://api-ng.superguidatv.it/v3/channels-events?` +
-              `startDate=${startDate}T00:00:00&endDate=${endDate}T23:59:59` +
-              `&orderBy=channelNumber&channelId[]=${channelId}&ct-ver=1is&bld=5504148&plt=ANDROID`;
 
-  const res = await fetch(url, {
-    headers: {
-      "x-client-token": auth.token,
-      Authorization: `Bearer ${auth.access}`
-    }
-  });
+  async function tryFetch(paramType) {
+    const url =
+      `https://api-ng.superguidatv.it/v3/channels-events?` +
+      `startDate=${startDate}T00:00:00&endDate=${endDate}T23:59:59` +
+      `&orderBy=channelNumber&${paramType}[]=${channelGuid}&ct-ver=1is&bld=5504148&plt=ANDROID`;
 
-  if (res.status >= 400) {
-    console.warn(`⚠️ SuperGuidaTV ${channelId} ${startDate}: ${res.status}`);
-    return [];
+    const res = await fetch(url, {
+      headers: {
+        "x-client-token": auth.token,
+        Authorization: `Bearer ${auth.access}`
+      }
+    });
+
+    if (!res.ok) return { status: res.status, data: null };
+
+    const json = await res.json();
+    if (!json?.[0]?.events?.length) return { status: res.status, data: null };
+    return { status: res.status, data: json };
   }
 
-  const json = await res.json();
+  // --- Primary: guid[] ---
+  let result = await tryFetch("guid");
+
+  // --- Fallback: channelId[] ---
+  if (!result.data && (result.status === 401 || result.status === 404 || result.status === 500)) {
+    console.warn(`⚠️ Fallback to channelId[] for ${channelGuid}`);
+    result = await tryFetch("channelId");
+  }
+
+  const json = result.data;
   if (!json?.[0]?.events) return [];
 
   const programs = [];
@@ -97,13 +111,12 @@ async function fetchDay(channelId, dateRome, auth) {
   return programs;
 }
 
-// --- Main entry: fetch multiple channels concurrently ---
+// --- Main entry: fetch multiple channels concurrently (limit=3) ---
 export default async function fetchSuperGuidaEPG(channels) {
   const results = [];
   const today = DateTime.now().setZone("Europe/Rome").startOf("day");
   const auth = await getGuestToken();
 
-  // Parallel limit (safe)
   const CONCURRENCY = 3;
   const queue = [...channels];
 
