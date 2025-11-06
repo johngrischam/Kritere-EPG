@@ -1,11 +1,13 @@
 // ====================================================================
-//  blue_clean.js — Optimized Blue.ch EPG (Zappr-style + Luxon parallel)
-//  Author: KritereTV (improved multi-node + safe parallel fetching)
+//  blue_clean.js — Blue.ch EPG (KritereTV stable build)
+//  Author: KritereTV (final working version for all channels incl. 214)
 // ====================================================================
+
 import { DateTime } from "luxon";
 
 const BLUE_BASE = "https://services.sg101.prd.sctv.ch";
 
+// --- Convert ISO time to Europe/Rome ---
 function toRome(isoString) {
   try {
     return DateTime.fromISO(isoString, { zone: "Europe/Rome" });
@@ -14,10 +16,14 @@ function toRome(isoString) {
   }
 }
 
+// --- Fetch one channel from Blue.ch ---
 async function fetchChannel(site_id) {
   const today = DateTime.now().setZone("Europe/Rome");
+
+  // ✅ Correct date format confirmed: yyyyMMdd0000
   const start = today.minus({ days: 1 }).toFormat("yyyyMMdd0000");
-  const end = today.plus({ days: 7 }).toFormat("yyyyMMdd0000");
+  const end   = today.plus({ days: 7 }).toFormat("yyyyMMdd0000");
+
   const url = `${BLUE_BASE}/catalog/tv/channels/list/(ids=${site_id};start=${start};end=${end};level=normal)`;
 
   const res = await fetch(url, { headers: { "User-Agent": "kritere-epg/1.0" } });
@@ -28,28 +34,27 @@ async function fetchChannel(site_id) {
 
   const json = await res.json();
 
-  // ✅ Merge across all nodes, not just index 0
-  const items =
-    json?.Nodes?.Items?.flatMap(node => node?.Content?.Nodes?.Items || []) || [];
+  // ✅ Correct structure: first-level Content.Nodes.Items
+  const items = json?.Nodes?.Items?.[0]?.Content?.Nodes?.Items || [];
 
   const programs = [];
 
   for (const entry of items) {
-    // ✅ Accept either Availabilities or Schedules
     const avail = entry?.Availabilities?.[0] || entry?.Schedules?.[0];
     if (!avail) continue;
 
     const startTime = toRome(avail.AvailabilityStart || avail.Start);
-    const endTime = toRome(avail.AvailabilityEnd || avail.End);
+    const endTime   = toRome(avail.AvailabilityEnd || avail.End);
     if (!startTime || !endTime) continue;
 
     const desc = entry?.Content?.Description || {};
     const nodes = entry?.Content?.Nodes?.Items || [];
 
+    // Poster preference chain
     const preferred = ["Lane", "Stage", "Landscape"];
     let poster = null;
     for (const role of preferred) {
-      const found = nodes.find((n) => n?.Role === role && n?.ContentPath);
+      const found = nodes.find(n => n?.Role === role && n?.ContentPath);
       if (found) {
         poster = `${BLUE_BASE}/content/images/${found.ContentPath.trim()}_w1920.webp`;
         break;
@@ -71,10 +76,16 @@ async function fetchChannel(site_id) {
     });
   }
 
-  console.log(`✅ Blue.ch ${site_id}: ${programs.length} programmi`);
+  if (programs.length === 0) {
+    console.warn(`⚠️ No programs for Blue.ch ${site_id}`);
+  } else {
+    console.log(`✅ Blue.ch ${site_id}: ${programs.length} programmi`);
+  }
+
   return programs;
 }
 
+// --- Fetch multiple channels concurrently ---
 export default async function fetchBlueEPG(channels) {
   const CONCURRENCY_LIMIT = 5;
   const results = [];
