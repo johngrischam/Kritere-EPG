@@ -1,102 +1,38 @@
 // ====================================================================
-//  national_clean.js — Main list of Italian EPG sources (Phase 7)
-//  Author: KritereTV (clean implementation)
+//  national_clean.js — Minimal Italian EPG sources (Phase 8 - KritereTV)
+//  Author: KritereTV (Blue.ch + SamsungTV + SuperGuidaTV for Sky)
 // ====================================================================
 
 import fetchBlueEPG from "../../sources/it/blue_clean.js";
-import fetchRaiPlayEPG from "../../sources/it/raiplay_clean.js";
 import fetchSamsungEPG from "../../sources/it/samsungtvplus_clean.js";
-import fetchTivuEPG from "../../sources/it/tivu_clean.js";
 import fetchSuperGuidaEPG from "../../sources/it/superguidatv_clean.js";
-import fetchSkyEPG from "../../sources/it/sky_clean.js";
-import fetchMediasetEPG from "../../sources/it/mediaset_clean.js";
-import fetchOggiInTVEPG from "../../sources/it/oggiintv_clean.js";
 
 // --------------------------------------------------------------------
-// Unified list of Italian EPG sources (8 total)
+// Unified list of Italian EPG sources (3 total, simplified)
 // --------------------------------------------------------------------
 export default {
-  blue: { fetch: fetchBlueEPG, channels: [1287, 1123, 348, 79, 215, 237, 266, 118, 332, 334] },
-
-  raiplay: {
-    fetch: fetchRaiPlayEPG,
-    channels: [
-      "rai-1",
-      "rai-2",
-      "rai-3",
-      "rai-4",
-      "rai-5",
-      "rai-news-24",
-      "rai-sport",
-      "rai-movie",
-      "rai-gulp",
-    ],
+  // --- Blue.ch: all main FTA & national channels ---
+  blue: {
+    fetch: fetchBlueEPG,
+    channels: [1287, 1123, 348, 79, 215, 237, 266, 118, 332, 334],
   },
 
+  // --- SamsungTVPlus: all FAST / streaming channels ---
   samsungtvplus: {
-  fetch: fetchSamsungEPG,
-  channels: ["*"],   // expands to every <programme channel="..."> id
-},
+    fetch: fetchSamsungEPG,
+    channels: ["*"], // expands automatically from XML
+  },
 
-  tivu: { fetch: fetchTivuEPG, channels: [130, 136, 255] },
-
+  // --- SuperGuidaTV: Sky / Pay-TV channels only ---
   superguidatv: {
-  fetch: fetchSuperGuidaEPG,
-  channels: [
-    // --- Rai ---
-    8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28,
-
-    // --- Mediaset ---
-    30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50,
-
-    // --- Sky / Pay-TV ---
-    102, 104, 105, 106, 107, 108, 109, 110,
-    111, 112, 113, 114, 115, 116, 117, 118, 119,
-
-    // --- Discovery & free channels ---
-    121, 122, 123, 124, 125, 126, 127, 128,
-    129, 130, 131, 132, 133, 134, 135, 136,
-    137, 138, 139, 140,
-
-    // --- Eurosport & sport bouquet ---
-    141, 142, 145, 146, 147, 148, 149,
-  ],
-},
-
-  sky: {
-    fetch: fetchSkyEPG,
-    channels: [9115, 477, 501, 102, 108, 109, 110],
-  },
-
-  mediaset: {
-    fetch: fetchMediasetEPG,
+    fetch: fetchSuperGuidaEPG,
     channels: [
-      "canale5",
-      "italia1",
-      "rete4",
-      "20",
-      "la5",
-      "topcrime",
-      "iris",
-      "cine34",
-      "focus",
-      "extra",
-      "tgcom24",
-    ],
-  },
+      // Sky Entertainment & Cinema
+      102, 104, 105, 106, 107, 108, 109, 110,
+      111, 112, 113, 114, 115, 116, 117, 118, 119,
 
-  oggiintv: {
-    fetch: fetchOggiInTVEPG,
-    channels: [
-      "tv8",
-      "real-time",
-      "cielo",
-      "giallo",
-      "motortrend",
-      "nove",
-      "la7d",
-      "twentyseven",
+      // Eurosport & other Sky sports
+      141, 142, 145, 146, 147, 148, 149,
     ],
   },
 };
-
