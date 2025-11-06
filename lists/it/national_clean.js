@@ -25,6 +25,7 @@ export default {
 
   // --- SuperGuidaTV: Sky / Pay-TV channels only ---
   superguidatv: {
-  fetch: fetchSuperGuidaEPG,
-  channels: [1], // Sky Uno
-},
+    fetch: fetchSuperGuidaEPG,
+    channels: [1], // Sky Uno
+  },
+}; // ✅ <--- closes the export object
