@@ -1,12 +1,11 @@
 // ====================================================================
 //  blue_clean.js — Optimized Blue.ch EPG (Zappr-style + Luxon parallel)
-//  Author: KritereTV (clean implementation, safe parallel fetching)
+//  Author: KritereTV (improved multi-node + safe parallel fetching)
 // ====================================================================
 import { DateTime } from "luxon";
 
 const BLUE_BASE = "https://services.sg101.prd.sctv.ch";
 
-// --- Helper: convert UTC ISO → Europe/Rome ---
 function toRome(isoString) {
   try {
     return DateTime.fromISO(isoString, { zone: "Europe/Rome" });
@@ -15,7 +14,6 @@ function toRome(isoString) {
   }
 }
 
-// --- Fetch a single Blue.ch channel's EPG ---
 async function fetchChannel(site_id) {
   const today = DateTime.now().setZone("Europe/Rome");
   const start = today.minus({ days: 1 }).toFormat("yyyyMMdd0000");
@@ -29,21 +27,25 @@ async function fetchChannel(site_id) {
   }
 
   const json = await res.json();
-  const items = json?.Nodes?.Items?.[0]?.Content?.Nodes?.Items || [];
+
+  // ✅ Merge across all nodes, not just index 0
+  const items =
+    json?.Nodes?.Items?.flatMap(node => node?.Content?.Nodes?.Items || []) || [];
+
   const programs = [];
 
   for (const entry of items) {
-    const avail = entry?.Availabilities?.[0];
+    // ✅ Accept either Availabilities or Schedules
+    const avail = entry?.Availabilities?.[0] || entry?.Schedules?.[0];
     if (!avail) continue;
 
-    const startTime = toRome(avail.AvailabilityStart);
-    const endTime = toRome(avail.AvailabilityEnd);
+    const startTime = toRome(avail.AvailabilityStart || avail.Start);
+    const endTime = toRome(avail.AvailabilityEnd || avail.End);
     if (!startTime || !endTime) continue;
 
     const desc = entry?.Content?.Description || {};
     const nodes = entry?.Content?.Nodes?.Items || [];
 
-    // Prefer Lane > Stage > Landscape
     const preferred = ["Lane", "Stage", "Landscape"];
     let poster = null;
     for (const role of preferred) {
@@ -73,9 +75,7 @@ async function fetchChannel(site_id) {
   return programs;
 }
 
-// --- Main entry: fetch all channels in parallel (fast + safe) ---
 export default async function fetchBlueEPG(channels) {
-  // Limit concurrency to 5 channels at once to avoid overload
   const CONCURRENCY_LIMIT = 5;
   const results = [];
   const queue = [...channels];
@@ -92,7 +92,6 @@ export default async function fetchBlueEPG(channels) {
     }
   }
 
-  // Launch workers (parallel batches)
   await Promise.all(
     Array.from({ length: Math.min(CONCURRENCY_LIMIT, channels.length) }, () =>
       worker()
