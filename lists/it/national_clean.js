@@ -25,14 +25,6 @@ export default {
 
   // --- SuperGuidaTV: Sky / Pay-TV channels only ---
   superguidatv: {
-    fetch: fetchSuperGuidaEPG,
-    channels: [
-      // Sky Entertainment & Cinema
-      102, 104, 105, 106, 107, 108, 109, 110,
-      111, 112, 113, 114, 115, 116, 117, 118, 119,
-
-      // Eurosport & other Sky sports
-      141, 142, 145, 146, 147, 148, 149,
-    ],
-  },
-};
+  fetch: fetchSuperGuidaEPG,
+  channels: [1], // Sky Uno
+},
