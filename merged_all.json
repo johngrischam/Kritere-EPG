@@ -26291,6 +26291,1056 @@
     ]
   },
   {
+    "id": "338",
+    "name": "Blue 338",
+    "programs": [
+      {
+        "title": "Eurolega femminile: Umana Reyer Venezia - Casademont Zaragoza",
+        "description": "Pallacanestro. EuroLega Donne: Venezia-Saragozza.",
+        "start": "2025-11-05T00:00:00.000+01:00",
+        "end": "2025-11-05T02:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p8354014ih10aa_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Rugby: Serie A Elite maschile: Rugby Petrarca - Rugby Rovigo Delta",
+        "description": "Le partite della Serie A Elite maschile, il massimo campionato italiano di rugby.",
+        "start": "2025-11-05T02:00:00.000+01:00",
+        "end": "2025-11-05T03:45:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/broadcast/338/500.533_genre_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Cerimonia di Consegna dei Collari d'Oro",
+        "description": "In diretta dal Salone D'Onore del CONI in Roma, la premiazione dei migliori atleti, tecnici e società sportive italiane del 2025. A cura di Rai Sport. Conducono Simona Rolandi, Andrea Fusco.",
+        "start": "2025-11-05T03:45:00.000+01:00",
+        "end": "2025-11-05T06:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/broadcast/338/700.701_genre_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Perle di sport",
+        "description": "I momenti più avvincenti ed emozionanti nella storia dello sport.",
+        "start": "2025-11-05T06:00:00.000+01:00",
+        "end": "2025-11-05T06:05:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p10679101bh10aa_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Tiro a volo",
+        "description": "Segui le sfide di tiro a segno.",
+        "start": "2025-11-05T06:05:00.000+01:00",
+        "end": "2025-11-05T07:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p903371bh10aj_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "TG Sport Mattina",
+        "description": "Notiziario mattutino sugli aggiornamenti sportivi.",
+        "start": "2025-11-05T07:00:00.000+01:00",
+        "end": "2025-11-05T07:30:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p22540888bh10aa_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "ISU Grand Prix Pattinaggio di figura: Grand Prix Skate of Canada Saskatoon: Programma corto",
+        "description": "",
+        "start": "2025-11-05T07:30:00.000+01:00",
+        "end": "2025-11-05T09:45:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p8937577ih10ab_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Coppa del Mondo femminile U17 FIFA 2025: Messico - Italia",
+        "description": "La nona edizione del Mondiale femminile U17 FIFA. Dal Marocco.",
+        "start": "2025-11-05T09:45:00.000+01:00",
+        "end": "2025-11-05T12:15:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/GNLZZGG002GNTN7_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Cerimonia di Consegna dei Collari d'Oro",
+        "description": "In diretta dal Salone D'Onore del CONI in Roma, la premiazione dei migliori atleti, tecnici e società sportive italiane del 2025. A cura di Rai Sport. Conducono Simona Rolandi, Andrea Fusco.",
+        "start": "2025-11-05T12:15:00.000+01:00",
+        "end": "2025-11-05T14:10:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/broadcast/338/700.701_genre_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "SuperLega: Azimut Leo Shoes Modena - Sir Susa Scai Perugia",
+        "description": "Dal Palasport G. Panini di Modena, Italy.",
+        "start": "2025-11-05T14:10:00.000+01:00",
+        "end": "2025-11-05T16:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p11305948bh10ah_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "ISU Grand Prix Pattinaggio di figura: Grand Prix Skate of Canada Saskatoon: Programma Libero",
+        "description": "",
+        "start": "2025-11-05T16:00:00.000+01:00",
+        "end": "2025-11-05T18:55:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p8937577ih10ab_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Automobilismo: Campionato Italiano GT Sprint Monza, 4a prova: Gara 2",
+        "description": "Segui la gara automobilistica in programma.",
+        "start": "2025-11-05T18:55:00.000+01:00",
+        "end": "2025-11-05T20:20:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p8801850ih8ab_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Lega Pallavolo Serie A Femminile: A. Carraro Prosecco DOC Imoco Conegliano - Numia Vero Volley Milano",
+        "description": "Dal Palaverde di Treviso, Italia.",
+        "start": "2025-11-05T20:20:00.000+01:00",
+        "end": "2025-11-05T23:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/GNLZZGG002GF967_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Tiro a volo: Coppa del Mondo Atene: Trap misto a Squadre",
+        "description": "Segui la gara di tiro a volo in programma.",
+        "start": "2025-11-05T23:00:00.000+01:00",
+        "end": "2025-11-05T23:45:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p8214554ih10ac_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "TG Sport Notte",
+        "description": "Notiziario notturno sullo sport.",
+        "start": "2025-11-05T23:45:00.000+01:00",
+        "end": "2025-11-06T00:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p22540855bh8aa_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "ISU Grand Prix Pattinaggio di figura: Grand Prix Skate of Canada Saskatoon: Programma Libero",
+        "description": "",
+        "start": "2025-11-06T00:00:00.000+01:00",
+        "end": "2025-11-06T02:50:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p8937577ih10ab_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Judo: Campionati Italiani a Squadre",
+        "description": "Segui gli incontri di judo in programma.",
+        "start": "2025-11-06T02:50:00.000+01:00",
+        "end": "2025-11-06T03:45:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p751983bh10al_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Lega Pallavolo Serie A Femminile: Bergamo - A. Carraro Prosecco DOC Imoco Conegliano",
+        "description": "Dal PalaNorda di Bergamo, Italia.",
+        "start": "2025-11-06T03:45:00.000+01:00",
+        "end": "2025-11-06T06:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p11918613bh10ag_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Speciale TG Sport",
+        "description": "Segui lo speciale di Rai Sport.",
+        "start": "2025-11-06T06:00:00.000+01:00",
+        "end": "2025-11-06T06:15:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p12456379bh10aa_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Judo: Campionati Italiani a Squadre",
+        "description": "Segui gli incontri di judo in programma.",
+        "start": "2025-11-06T06:15:00.000+01:00",
+        "end": "2025-11-06T07:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p751983bh10al_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "TG Sport Mattina",
+        "description": "Notiziario mattutino sugli aggiornamenti sportivi.",
+        "start": "2025-11-06T07:00:00.000+01:00",
+        "end": "2025-11-06T07:30:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p22540888bh10aa_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Maratona: New York",
+        "description": "Segui la maratona in programma.",
+        "start": "2025-11-06T07:30:00.000+01:00",
+        "end": "2025-11-06T10:20:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p261906ih10aa_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Eurolega femminile: Umana Reyer Venezia - Casademont Zaragoza",
+        "description": "Pallacanestro. EuroLega Donne: Venezia-Saragozza.",
+        "start": "2025-11-06T10:20:00.000+01:00",
+        "end": "2025-11-06T12:30:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p8354014ih10aa_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Judo: Campionati Italiani a Squadre",
+        "description": "Segui gli incontri di judo in programma.",
+        "start": "2025-11-06T12:30:00.000+01:00",
+        "end": "2025-11-06T13:20:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p751983bh10al_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Coppa del Mondo U17 FIFA 2025: Bolivia U17 - Italia",
+        "description": "Dal Qatar.",
+        "start": "2025-11-06T13:20:00.000+01:00",
+        "end": "2025-11-06T15:30:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/GNLZZGG002GFV80_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Orienteering",
+        "description": "Seguiamo i più importanti eventi nazionali e internazionali dedicati all'orienteering.",
+        "start": "2025-11-06T15:30:00.000+01:00",
+        "end": "2025-11-06T16:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p16293709bh11aa_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "ISU Grand Prix Pattinaggio di figura: Grand Prix Skate of Canada Saskatoon: Gala",
+        "description": "",
+        "start": "2025-11-06T16:00:00.000+01:00",
+        "end": "2025-11-06T17:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p8937577ih10ab_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Rugby: Serie A Elite maschile: Rugby Petrarca - Rugby Rovigo Delta",
+        "description": "Le partite della Serie A Elite maschile, il massimo campionato italiano di rugby.",
+        "start": "2025-11-06T17:00:00.000+01:00",
+        "end": "2025-11-06T19:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/broadcast/338/500.533_genre_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Radiocorsa",
+        "description": "La trasmissione dedicata al ciclismo e ai suoi tanti appassionati, dalle corse dilettantistiche alle gare professionistiche delle varie categorie, come pista, ciclocross, mountain bike, fino agli eventi storici più importanti.",
+        "start": "2025-11-06T19:00:00.000+01:00",
+        "end": "2025-11-06T20:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p11489792bh10ab_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Ciclocross",
+        "description": "Vengono mostrati i momenti salienti e le sintesi delle varie gare di ciclocross.",
+        "start": "2025-11-06T20:00:00.000+01:00",
+        "end": "2025-11-06T20:30:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p23160181bh10al_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "ISU Grand Prix Pattinaggio di figura: Grand Prix Skate of Canada Saskatoon: Gala",
+        "description": "",
+        "start": "2025-11-06T20:30:00.000+01:00",
+        "end": "2025-11-06T21:30:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p8937577ih10ab_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Eurolega femminile: Umana Reyer Venezia - Casademont Zaragoza",
+        "description": "Pallacanestro. EuroLega Donne: Venezia-Saragozza.",
+        "start": "2025-11-06T21:30:00.000+01:00",
+        "end": "2025-11-06T23:45:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p8354014ih10aa_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "TG Sport Notte",
+        "description": "Notiziario notturno sullo sport.",
+        "start": "2025-11-06T23:45:00.000+01:00",
+        "end": "2025-11-07T00:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p22540855bh8aa_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Radiocorsa",
+        "description": "La trasmissione dedicata al ciclismo e ai suoi tanti appassionati, dalle corse dilettantistiche alle gare professionistiche delle varie categorie, come pista, ciclocross, mountain bike, fino agli eventi storici più importanti.",
+        "start": "2025-11-07T00:00:00.000+01:00",
+        "end": "2025-11-07T01:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p11489792bh10ab_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Automobilismo",
+        "description": "I motori e l'alta velocità, su pista e in strada, protagonisti dello schermo.",
+        "start": "2025-11-07T01:00:00.000+01:00",
+        "end": "2025-11-07T02:30:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p334889bh10bi_BannerL2_w1920.webp",
+        "rating": {
+          "label": "12+"
+        }
+      },
+      {
+        "title": "Coppa del Mondo U17 FIFA 2025: Bolivia U17 - Italia",
+        "description": "Dal Qatar.",
+        "start": "2025-11-07T02:30:00.000+01:00",
+        "end": "2025-11-07T04:45:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/GNLZZGG002GFV80_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Pallanuoto",
+        "description": "Segui la sfida di pallanuoto in programma.",
+        "start": "2025-11-07T04:45:00.000+01:00",
+        "end": "2025-11-07T06:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p527864bh10af_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "ISU Grand Prix Pattinaggio di figura: Grand Prix Skate of Canada Saskatoon: Gala",
+        "description": "",
+        "start": "2025-11-07T06:00:00.000+01:00",
+        "end": "2025-11-07T07:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p8937577ih10ab_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "TG Sport Mattina",
+        "description": "Notiziario mattutino sugli aggiornamenti sportivi.",
+        "start": "2025-11-07T07:00:00.000+01:00",
+        "end": "2025-11-07T07:30:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p22540888bh10aa_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Rugby: Serie A Elite maschile: Rugby Petrarca - Rugby Rovigo Delta",
+        "description": "Le partite della Serie A Elite maschile, il massimo campionato italiano di rugby.",
+        "start": "2025-11-07T07:30:00.000+01:00",
+        "end": "2025-11-07T09:30:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/broadcast/338/500.533_genre_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Maratona: New York",
+        "description": "Segui la maratona in programma.",
+        "start": "2025-11-07T09:30:00.000+01:00",
+        "end": "2025-11-07T12:30:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p261906ih10aa_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Tiro a volo: Coppa del Mondo Atene: Skeet",
+        "description": "Segui la gara di tiro a volo in programma.",
+        "start": "2025-11-07T12:30:00.000+01:00",
+        "end": "2025-11-07T14:30:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p8214554ih10ac_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Coppa del Mondo U17 FIFA 2025: Bolivia U17 - Italia",
+        "description": "Dal Qatar.",
+        "start": "2025-11-07T14:30:00.000+01:00",
+        "end": "2025-11-07T16:45:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/GNLZZGG002GFV80_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Gli imperdibili",
+        "description": "Spazio dedicato alle anteprime, agli eventi, alle curiosità e al dietro le quinte dei programmi Rai, che ci aiuta ad approfondire la nostra conoscenza sulla programmazione dei canali che ne compongono il palinsesto.",
+        "start": "2025-11-07T16:45:00.000+01:00",
+        "end": "2025-11-07T16:50:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p13474521bh8ab_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Pallavolo maschile: Supercoppa Italia Del Monte Dammam: Semifinale 1",
+        "description": "Squadre di professionisti si affrontano durante un torneo di pallavolo per uscire vittoriose e conquistare l'ambito titolo.",
+        "start": "2025-11-07T16:50:00.000+01:00",
+        "end": "2025-11-07T19:25:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p3610039ih8ab_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Pallavolo maschile: Supercoppa Italia Del Monte Dammam: Semifinale 2",
+        "description": "Squadre di professionisti si affrontano durante un torneo di pallavolo per uscire vittoriose e conquistare l'ambito titolo.",
+        "start": "2025-11-07T19:25:00.000+01:00",
+        "end": "2025-11-07T22:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p3610039ih8ab_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Equitazione: Coppa del Mondo Verona, Salto: 1a giornata",
+        "description": "Segui in diretta tutti gli avvenimenti equestri.",
+        "start": "2025-11-07T22:00:00.000+01:00",
+        "end": "2025-11-07T23:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p378945bh10ca_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Pugilato",
+        "description": "Segui l'incontro di boxe in programma.",
+        "start": "2025-11-07T23:00:00.000+01:00",
+        "end": "2025-11-07T23:45:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p343935bh10bm_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "TG Sport Notte",
+        "description": "Notiziario notturno sullo sport.",
+        "start": "2025-11-07T23:45:00.000+01:00",
+        "end": "2025-11-08T00:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p22540855bh8aa_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "ISU Grand Prix Pattinaggio di figura: Grand Prix Skate of Canada Saskatoon: Gala",
+        "description": "",
+        "start": "2025-11-08T00:00:00.000+01:00",
+        "end": "2025-11-08T01:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p8937577ih10ab_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Pallavolo maschile: Supercoppa Italia Del Monte Dammam: Semifinale 1",
+        "description": "Squadre di professionisti si affrontano durante un torneo di pallavolo per uscire vittoriose e conquistare l'ambito titolo.",
+        "start": "2025-11-08T01:00:00.000+01:00",
+        "end": "2025-11-08T03:30:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p3610039ih8ab_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Pallavolo maschile: Supercoppa Italia Del Monte Dammam: Semifinale 2",
+        "description": "Squadre di professionisti si affrontano durante un torneo di pallavolo per uscire vittoriose e conquistare l'ambito titolo.",
+        "start": "2025-11-08T03:30:00.000+01:00",
+        "end": "2025-11-08T06:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p3610039ih8ab_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Equitazione: Coppa del Mondo Verona, Salto: 1a giornata",
+        "description": "Segui in diretta tutti gli avvenimenti equestri.",
+        "start": "2025-11-08T06:00:00.000+01:00",
+        "end": "2025-11-08T07:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p378945bh10ca_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "TG Sport Mattina",
+        "description": "Notiziario mattutino sugli aggiornamenti sportivi.",
+        "start": "2025-11-08T07:00:00.000+01:00",
+        "end": "2025-11-08T07:30:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p22540888bh10aa_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Ciclocross",
+        "description": "Vengono mostrati i momenti salienti e le sintesi delle varie gare di ciclocross.",
+        "start": "2025-11-08T07:30:00.000+01:00",
+        "end": "2025-11-08T08:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p23160181bh10al_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Canottaggio: Beach Sprint, Mondiali Antalya: Finali 1a giornata",
+        "description": "Segui la gara di canottaggio in programma.",
+        "start": "2025-11-08T08:00:00.000+01:00",
+        "end": "2025-11-08T11:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p885939bh10av_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Radiocorsa",
+        "description": "La trasmissione dedicata al ciclismo e ai suoi tanti appassionati, dalle corse dilettantistiche alle gare professionistiche delle varie categorie, come pista, ciclocross, mountain bike, fino agli eventi storici più importanti.",
+        "start": "2025-11-08T11:00:00.000+01:00",
+        "end": "2025-11-08T12:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p11489792bh10ab_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Canottaggio: Beach Sprint, Mondiali Antalya: Finali 1a giornata",
+        "description": "Segui la gara di canottaggio in programma.",
+        "start": "2025-11-08T12:00:00.000+01:00",
+        "end": "2025-11-08T13:50:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p885939bh10av_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Serie A femminile: Milan - Juventus",
+        "description": "Seguiamo le partite di calcio del campionato della Serie A femminile in programma.",
+        "start": "2025-11-08T13:50:00.000+01:00",
+        "end": "2025-11-08T16:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/GNLZZGG002CV56B_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Basket femminile: Serie A1 femminile: Beretta Famila Schio - Umana Reyer Venezia",
+        "description": "",
+        "start": "2025-11-08T16:00:00.000+01:00",
+        "end": "2025-11-08T18:15:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p8192646ih8ap_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Speciale TG Sport",
+        "description": "Segui lo speciale di Rai Sport.",
+        "start": "2025-11-08T18:15:00.000+01:00",
+        "end": "2025-11-08T18:25:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p12456379bh10aa_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Gli imperdibili",
+        "description": "Spazio dedicato alle anteprime, agli eventi, alle curiosità e al dietro le quinte dei programmi Rai, che ci aiuta ad approfondire la nostra conoscenza sulla programmazione dei canali che ne compongono il palinsesto.",
+        "start": "2025-11-08T18:25:00.000+01:00",
+        "end": "2025-11-08T18:30:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p13474521bh8ab_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Rugby: Test Match: Italia - Australia",
+        "description": "Dallo Stadio Friuli di Udine, Italia.",
+        "start": "2025-11-08T18:30:00.000+01:00",
+        "end": "2025-11-08T20:40:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/GNLZZGG0026BYNJ_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Lega Pallavolo Serie A Femminile: Savino Del Bene Scandicci - Bergamo",
+        "description": "Le squadre professionistiche si sfidano nella Lega Italiana Pallavolo Femminile per aggiudicarsi la vittoria e l'ambito trofeo.",
+        "start": "2025-11-08T20:40:00.000+01:00",
+        "end": "2025-11-08T23:15:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p11918613bh10ag_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Equitazione: Coppa del Mondo Verona, Salto: 2a giornata",
+        "description": "Segui in diretta tutti gli avvenimenti equestri.",
+        "start": "2025-11-08T23:15:00.000+01:00",
+        "end": "2025-11-09T01:35:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p378945bh10ca_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Serie A femminile: Milan - Juventus",
+        "description": "Seguiamo le partite di calcio del campionato della Serie A femminile in programma.",
+        "start": "2025-11-09T01:35:00.000+01:00",
+        "end": "2025-11-09T03:45:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/GNLZZGG002CV56B_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Basket femminile: Serie A1 femminile: Beretta Famila Schio - Umana Reyer Venezia",
+        "description": "",
+        "start": "2025-11-09T03:45:00.000+01:00",
+        "end": "2025-11-09T06:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p8192646ih8ap_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "ISU Grand Prix Pattinaggio di figura: Grand Prix Skate of Canada Saskatoon: Gala",
+        "description": "",
+        "start": "2025-11-09T06:00:00.000+01:00",
+        "end": "2025-11-09T07:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p8937577ih10ab_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "TG Sport Mattina",
+        "description": "Notiziario mattutino sugli aggiornamenti sportivi.",
+        "start": "2025-11-09T07:00:00.000+01:00",
+        "end": "2025-11-09T07:30:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p22540888bh10aa_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Orienteering",
+        "description": "Seguiamo i più importanti eventi nazionali e internazionali dedicati all'orienteering.",
+        "start": "2025-11-09T07:30:00.000+01:00",
+        "end": "2025-11-09T08:05:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p16293709bh11aa_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Canottaggio: Beach Sprint, Mondiali Antalya: Finali 2a giornata",
+        "description": "Segui la gara di canottaggio in programma.",
+        "start": "2025-11-09T08:05:00.000+01:00",
+        "end": "2025-11-09T12:15:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p885939bh10av_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Serie A2 Basket: Victoria Libertas Pesaro - Givova Scafati",
+        "description": "Pallacanestro. Serie A2 Old Wild West: Pesaro-Scafati - 10a g.ta.",
+        "start": "2025-11-09T12:15:00.000+01:00",
+        "end": "2025-11-09T14:30:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p12869412ih8aa_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Rally Highlights",
+        "description": "Segui le gare di rally.",
+        "start": "2025-11-09T14:30:00.000+01:00",
+        "end": "2025-11-09T14:55:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p279664bh8ap_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Equitazione: Coppa del Mondo Verona, Salto: 3a giornata",
+        "description": "Segui in diretta tutti gli avvenimenti equestri.",
+        "start": "2025-11-09T14:55:00.000+01:00",
+        "end": "2025-11-09T17:20:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p378945bh10ca_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Rally Highlights",
+        "description": "Segui le gare di rally.",
+        "start": "2025-11-09T17:20:00.000+01:00",
+        "end": "2025-11-09T17:50:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p279664bh8ap_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Lega Pallavolo Serie A Femminile: Il Bisonte Firenze - Omag-Mt San Giovanni In Marignano",
+        "description": "Le squadre professionistiche si sfidano nella Lega Italiana Pallavolo Femminile per aggiudicarsi la vittoria e l'ambito trofeo.",
+        "start": "2025-11-09T17:50:00.000+01:00",
+        "end": "2025-11-09T20:25:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p11918613bh10ag_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "SuperLega",
+        "description": "Seguiamo l'incontro del campionato italiano di pallavolo.",
+        "start": "2025-11-09T20:25:00.000+01:00",
+        "end": "2025-11-09T23:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p11305948bh10ah_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Coppa del Mondo U17 FIFA 2025: Italia - Sud Africa",
+        "description": "Dal Qatar.",
+        "start": "2025-11-09T23:00:00.000+01:00",
+        "end": "2025-11-10T01:05:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/GNLZZGG002GMJ37_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Tennis: Nitto ATP Finals 2025",
+        "description": "ATP Finals.",
+        "start": "2025-11-10T01:05:00.000+01:00",
+        "end": "2025-11-10T03:35:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p31455602bh8ac_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Lega Pallavolo Serie A Femminile: Il Bisonte Firenze - Omag-Mt San Giovanni In Marignano",
+        "description": "Le squadre professionistiche si sfidano nella Lega Italiana Pallavolo Femminile per aggiudicarsi la vittoria e l'ambito trofeo.",
+        "start": "2025-11-10T03:35:00.000+01:00",
+        "end": "2025-11-10T06:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p11918613bh10ag_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Speciale TG Sport",
+        "description": "Segui lo speciale di Rai Sport.",
+        "start": "2025-11-10T06:00:00.000+01:00",
+        "end": "2025-11-10T06:15:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p12456379bh10aa_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Tiro a volo: Coppa del Mondo Atene: Trap misto a Squadre",
+        "description": "Segui la gara di tiro a volo in programma.",
+        "start": "2025-11-10T06:15:00.000+01:00",
+        "end": "2025-11-10T07:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p8214554ih10ac_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "TG Sport Mattina",
+        "description": "Notiziario mattutino sugli aggiornamenti sportivi.",
+        "start": "2025-11-10T07:00:00.000+01:00",
+        "end": "2025-11-10T07:30:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p22540888bh10aa_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Equitazione: Coppa del Mondo Verona, Salto: 3a giornata",
+        "description": "Segui in diretta tutti gli avvenimenti equestri.",
+        "start": "2025-11-10T07:30:00.000+01:00",
+        "end": "2025-11-10T09:55:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p378945bh10ca_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Canottaggio: Beach Sprint, Mondiali Antalya: Finali 2a giornata",
+        "description": "Segui la gara di canottaggio in programma.",
+        "start": "2025-11-10T09:55:00.000+01:00",
+        "end": "2025-11-10T14:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p885939bh10av_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Diretta Azzurra",
+        "description": "La diretta di Raisport per seguire da vicino gli atleti azzurri prima e dopo la partita in programma.",
+        "start": "2025-11-10T14:00:00.000+01:00",
+        "end": "2025-11-10T14:40:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p11608179bh8ab_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Rally Highlights",
+        "description": "Segui le gare di rally.",
+        "start": "2025-11-10T14:40:00.000+01:00",
+        "end": "2025-11-10T15:10:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p279664bh8ap_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Nuoto",
+        "description": "Segui la gara di nuoto in programma.",
+        "start": "2025-11-10T15:10:00.000+01:00",
+        "end": "2025-11-10T17:20:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p497301bh10aw_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Nuoto",
+        "description": "Segui la gara di nuoto in programma.",
+        "start": "2025-11-10T17:20:00.000+01:00",
+        "end": "2025-11-10T19:30:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p497301bh10aw_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Diretta Azzurra",
+        "description": "La diretta di Raisport per seguire da vicino gli atleti azzurri prima e dopo la partita in programma.",
+        "start": "2025-11-10T19:30:00.000+01:00",
+        "end": "2025-11-10T20:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p11608179bh8ab_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "C Siamo",
+        "description": "Approfondimenti ed analisi tecniche dedicate dalla redazione di RAI Sport al campionato italiano di Serie C, perché il grande calcio non è esclusivamente quello giocato dalle grandi squadre.",
+        "start": "2025-11-10T20:00:00.000+01:00",
+        "end": "2025-11-10T20:25:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p14664069ih10aa_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Serie C: Salernitana - Crotone",
+        "description": "Tutte le partite del campionato di Serie C italiano.",
+        "start": "2025-11-10T20:25:00.000+01:00",
+        "end": "2025-11-10T22:25:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/GNLZZGG002GF64W_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "C Siamo",
+        "description": "Approfondimenti ed analisi tecniche dedicate dalla redazione di RAI Sport al campionato italiano di Serie C, perché il grande calcio non è esclusivamente quello giocato dalle grandi squadre.",
+        "start": "2025-11-10T22:25:00.000+01:00",
+        "end": "2025-11-10T22:45:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p14664069ih10aa_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Tiro a volo: Coppa del Mondo Atene: Trap misto a Squadre",
+        "description": "Segui la gara di tiro a volo in programma.",
+        "start": "2025-11-10T22:45:00.000+01:00",
+        "end": "2025-11-10T23:30:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p8214554ih10ac_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Orienteering",
+        "description": "Seguiamo i più importanti eventi nazionali e internazionali dedicati all'orienteering.",
+        "start": "2025-11-10T23:30:00.000+01:00",
+        "end": "2025-11-11T00:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p16293709bh11aa_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Tennis: Nitto ATP Finals 2025",
+        "description": "ATP Finals.",
+        "start": "2025-11-11T00:00:00.000+01:00",
+        "end": "2025-11-11T02:15:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p31455602bh8ac_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Serie C: Salernitana - Crotone",
+        "description": "Tutte le partite del campionato di Serie C italiano.",
+        "start": "2025-11-11T02:15:00.000+01:00",
+        "end": "2025-11-11T04:15:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/GNLZZGG002GF64W_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Equitazione: Coppa del Mondo Verona, Salto: 3a giornata",
+        "description": "Segui in diretta tutti gli avvenimenti equestri.",
+        "start": "2025-11-11T04:15:00.000+01:00",
+        "end": "2025-11-11T06:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p378945bh10ca_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Tiro con l'arco",
+        "description": "Segui la sfide di tiro con l'arco.",
+        "start": "2025-11-11T06:00:00.000+01:00",
+        "end": "2025-11-11T07:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p10007890bh10bb_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "TG Sport Mattina",
+        "description": "Notiziario mattutino sugli aggiornamenti sportivi.",
+        "start": "2025-11-11T07:00:00.000+01:00",
+        "end": "2025-11-11T07:30:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p22540888bh10aa_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Nuoto",
+        "description": "Segui la gara di nuoto in programma.",
+        "start": "2025-11-11T07:30:00.000+01:00",
+        "end": "2025-11-11T09:40:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p497301bh10aw_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Nuoto",
+        "description": "Segui la gara di nuoto in programma.",
+        "start": "2025-11-11T09:40:00.000+01:00",
+        "end": "2025-11-11T11:45:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p497301bh10aw_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Tennis: Nitto ATP Finals 2025",
+        "description": "Atp Finals.",
+        "start": "2025-11-11T11:45:00.000+01:00",
+        "end": "2025-11-11T13:45:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p31455602bh8ac_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Diretta Azzurra",
+        "description": "La diretta di Raisport per seguire da vicino gli atleti azzurri prima e dopo la partita in programma.",
+        "start": "2025-11-11T13:45:00.000+01:00",
+        "end": "2025-11-11T14:15:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p11608179bh8ab_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Orienteering",
+        "description": "Seguiamo i più importanti eventi nazionali e internazionali dedicati all'orienteering.",
+        "start": "2025-11-11T14:15:00.000+01:00",
+        "end": "2025-11-11T14:50:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p16293709bh11aa_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Serie A2 Basket: Victoria Libertas Pesaro - Givova Scafati",
+        "description": "Pallacanestro. Serie A2 Old Wild West: Pesaro-Scafati - 10a g.ta.",
+        "start": "2025-11-11T14:50:00.000+01:00",
+        "end": "2025-11-11T17:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p12869412ih8aa_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "ISU Grand Prix Pattinaggio di figura: Grand Prix NHK Trophy Osaka: Programma Corto",
+        "description": "",
+        "start": "2025-11-11T17:00:00.000+01:00",
+        "end": "2025-11-11T19:10:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p8937577ih10ab_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Automobilismo",
+        "description": "I motori e l'alta velocità, su pista e in strada, protagonisti dello schermo.",
+        "start": "2025-11-11T19:10:00.000+01:00",
+        "end": "2025-11-11T20:35:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p334889bh10bi_BannerL2_w1920.webp",
+        "rating": {
+          "label": "12+"
+        }
+      },
+      {
+        "title": "Tiro a volo: Coppa del Mondo Atene: Trap misto a Squadre",
+        "description": "Segui la gara di tiro a volo in programma.",
+        "start": "2025-11-11T20:35:00.000+01:00",
+        "end": "2025-11-11T21:30:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p8214554ih10ac_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "ISU Grand Prix Pattinaggio di figura: Grand Prix NHK Trophy Osaka: Programma Corto",
+        "description": "",
+        "start": "2025-11-11T21:30:00.000+01:00",
+        "end": "2025-11-11T23:45:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p8937577ih10ab_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "TG Sport Notte",
+        "description": "Notiziario notturno sullo sport.",
+        "start": "2025-11-11T23:45:00.000+01:00",
+        "end": "2025-11-12T00:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p22540855bh8aa_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Tennis: Nitto ATP Finals 2025",
+        "description": "Atp Finals.",
+        "start": "2025-11-12T00:00:00.000+01:00",
+        "end": "2025-11-12T02:15:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p31455602bh8ac_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Serie A femminile: Milan - Juventus",
+        "description": "Seguiamo le partite di calcio del campionato della Serie A femminile in programma.",
+        "start": "2025-11-12T02:15:00.000+01:00",
+        "end": "2025-11-12T04:25:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/GNLZZGG002CV56B_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Coppa del Mondo U17 FIFA 2025: Italia - Sud Africa",
+        "description": "Dal Qatar.",
+        "start": "2025-11-12T04:25:00.000+01:00",
+        "end": "2025-11-12T06:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/GNLZZGG002GMJ37_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Coppa del Mondo U17 FIFA 2025: Italia - Sud Africa",
+        "description": "Dal Qatar.",
+        "start": "2025-11-12T06:00:00.000+01:00",
+        "end": "2025-11-12T06:45:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/GNLZZGG002GMJ37_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Speciale TG Sport",
+        "description": "Segui lo speciale di Rai Sport.",
+        "start": "2025-11-12T06:45:00.000+01:00",
+        "end": "2025-11-12T07:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p12456379bh10aa_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "TG Sport Mattina",
+        "description": "Notiziario mattutino sugli aggiornamenti sportivi.",
+        "start": "2025-11-12T07:00:00.000+01:00",
+        "end": "2025-11-12T07:30:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p22540888bh10aa_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Canottaggio: Beach Sprint, Mondiali Antalya: Finali 2a giornata",
+        "description": "Segui la gara di canottaggio in programma.",
+        "start": "2025-11-12T07:30:00.000+01:00",
+        "end": "2025-11-12T11:20:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p885939bh10av_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Tennis: Nitto ATP Finals 2025",
+        "description": "ATP Finals.",
+        "start": "2025-11-12T11:20:00.000+01:00",
+        "end": "2025-11-12T13:30:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p31455602bh8ac_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Rally Highlights",
+        "description": "Segui le gare di rally.",
+        "start": "2025-11-12T13:30:00.000+01:00",
+        "end": "2025-11-12T14:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p279664bh8ap_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Tiro a volo: Coppa del Mondo Atene: Trap misto a Squadre",
+        "description": "Segui la gara di tiro a volo in programma.",
+        "start": "2025-11-12T14:00:00.000+01:00",
+        "end": "2025-11-12T14:50:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p8214554ih10ac_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Calcio: Qualificazioni Europei U19: Italia - Moldova U19",
+        "description": "Calcio. Qualificazioni Europei U19: Italia-Moldova.",
+        "start": "2025-11-12T14:50:00.000+01:00",
+        "end": "2025-11-12T17:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/GNLZZGG002GVS4B_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "ISU Grand Prix Pattinaggio di figura: Grand Prix NHK Trophy Osaka: Programma Libero",
+        "description": "",
+        "start": "2025-11-12T17:00:00.000+01:00",
+        "end": "2025-11-12T19:30:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p8937577ih10ab_Iconic_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Diretta Azzurra",
+        "description": "La diretta di Raisport per seguire da vicino gli atleti azzurri prima e dopo la partita in programma.",
+        "start": "2025-11-12T19:30:00.000+01:00",
+        "end": "2025-11-12T20:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p11608179bh8ab_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "TG Sport Notte",
+        "description": "Notiziario notturno sullo sport.",
+        "start": "2025-11-12T20:00:00.000+01:00",
+        "end": "2025-11-12T20:20:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p22540855bh8aa_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Lega Pallavolo Serie A Femminile: Eurotek Laica UYBA Busto Arsizio - Bosca San Bernardo Cuneo",
+        "description": "Le squadre professionistiche si sfidano nella Lega Italiana Pallavolo Femminile per aggiudicarsi la vittoria e l'ambito trofeo.",
+        "start": "2025-11-12T20:20:00.000+01:00",
+        "end": "2025-11-12T23:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p11918613bh10ag_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Speciale TG Sport",
+        "description": "Segui lo speciale di Rai Sport.",
+        "start": "2025-11-12T23:00:00.000+01:00",
+        "end": "2025-11-12T23:15:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p12456379bh10aa_BannerL1_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Rally Highlights",
+        "description": "Segui le gare di rally.",
+        "start": "2025-11-12T23:15:00.000+01:00",
+        "end": "2025-11-12T23:45:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p279664bh8ap_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "TG Sport Notte",
+        "description": "Notiziario notturno sullo sport.",
+        "start": "2025-11-12T23:45:00.000+01:00",
+        "end": "2025-11-13T00:00:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p22540855bh8aa_BannerL2_w1920.webp",
+        "rating": null
+      },
+      {
+        "title": "Tennis: Nitto ATP Finals 2025",
+        "description": "ATP Finals.",
+        "start": "2025-11-13T00:00:00.000+01:00",
+        "end": "2025-11-13T02:15:00.000+01:00",
+        "poster": "https://services.sg101.prd.sctv.ch/content/images/tv/program/338/p31455602bh8ac_BannerL1_w1920.webp",
+        "rating": null
+      }
+    ]
+  },
+  {
     "id": "332",
     "name": "Blue 332",
     "programs": [
@@ -73528,313 +74578,6 @@
         "end": "2025-11-06T08:25:00.000+01:00",
         "description": "Deluxe Lounge - the relaxed sound for a good feeling. Your time, your break: to come down, take a deep breath and take a break. Urbanauts, lounge lizards meet lounge-like tracks and smooth bar-grooves - the lounge mix. Head off, music on!.",
         "poster": "https://tvpnlogopeu.samsungcloud.tv/platform/image/contents/vc/00/LINEAR/IT_DEQY392104A_515150225_0_20241216T085843806Z_117_imageprocessorclient-tvplus-linear-7cd5d896cc-xjpbw.jpeg"
-      }
-    ]
-  },
-  {
-    "id": "1",
-    "name": "SuperGuidaTV 1",
-    "programs": [
-      {
-        "title": "Predators vs. Rangers",
-        "description": "Goditi tutta la stagione 2025/26 su NHL.TV su DAZN",
-        "start": "2025-11-11T01:00:00.000+01:00",
-        "end": "2025-11-11T01:50:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Islanders vs. Devils",
-        "description": "Goditi tutta la stagione 2025/26 su NHL.TV su DAZN",
-        "start": "2025-11-11T01:00:00.000+01:00",
-        "end": "2025-11-11T01:50:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Manningcast | MNF with Peyton & Eli: Eagles @ Packers",
-        "description": "Tutta la stagione 2025 sul Game Pass NFL disponibile su DAZN",
-        "start": "2025-11-11T02:00:00.000+01:00",
-        "end": "2025-11-11T05:30:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Eagles @ Packers",
-        "description": "Tutta la stagione 2025 sul Game Pass NFL disponibile su DAZN",
-        "start": "2025-11-11T02:15:00.000+01:00",
-        "end": "2025-11-11T05:45:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Philadelphia Eagles @ Green Bay Packers",
-        "description": "Gli Eagles campioni in carica chiudono la Week 10 di NFL facendo visita ai Packers in uno scontro diretto d'alta classifica. Qualità, spunti e tattica non mancano: come finirà la sfida? Segui il meglio della NFL su DAZN!",
-        "start": "2025-11-11T02:15:00.000+01:00",
-        "end": "2025-11-11T05:45:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Blue Jackets vs. Oilers",
-        "description": "Goditi tutta la stagione 2025/26 su NHL.TV su DAZN",
-        "start": "2025-11-11T02:30:00.000+01:00",
-        "end": "2025-11-11T03:20:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Panthers vs. Golden Knights",
-        "description": "Goditi tutta la stagione 2025/26 su NHL.TV su DAZN",
-        "start": "2025-11-11T04:00:00.000+01:00",
-        "end": "2025-11-11T04:50:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Sollevamento pesi - Giorno 4 (Commento Arabo)",
-        "description": "Non perderti nemmeno un'azione, su DAZN!",
-        "start": "2025-11-11T06:51:00.000+01:00",
-        "end": "2025-11-11T07:41:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Sollevamento pesi - Giorno 4",
-        "description": "Non perderti nemmeno un'azione, su DAZN!",
-        "start": "2025-11-11T06:51:00.000+01:00",
-        "end": "2025-11-11T07:41:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Ping Pong - Giorno 4",
-        "description": "Non perderti nemmeno un'azione, su DAZN!",
-        "start": "2025-11-11T06:52:00.000+01:00",
-        "end": "2025-11-11T07:42:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Ping Pong - Giorno 4 (Commento Arabo)",
-        "description": "Non perderti nemmeno un'azione, su DAZN!",
-        "start": "2025-11-11T06:52:00.000+01:00",
-        "end": "2025-11-11T07:42:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Karate - Giorno 1 (Commento Arabo)",
-        "description": "Non perderti nemmeno un'azione, su DAZN!",
-        "start": "2025-11-11T06:54:00.000+01:00",
-        "end": "2025-11-11T07:44:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Karate - Day 1",
-        "description": "Non perderti nemmeno un'azione, su DAZN!",
-        "start": "2025-11-11T06:54:00.000+01:00",
-        "end": "2025-11-11T07:44:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Volley - Giorno 7 (Commento Arabo)",
-        "description": "Non perderti nemmeno un'azione, su DAZN!",
-        "start": "2025-11-11T07:50:00.000+01:00",
-        "end": "2025-11-11T08:40:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Volley - Giorno 7",
-        "description": "Non perderti nemmeno un'azione, su DAZN!",
-        "start": "2025-11-11T07:50:00.000+01:00",
-        "end": "2025-11-11T08:40:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Nuoto-Giorno 4 Session 1",
-        "description": "Non perderti nemmeno un'azione, su DAZN!",
-        "start": "2025-11-11T07:54:00.000+01:00",
-        "end": "2025-11-11T08:44:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Nuoto - Giorno 4 (Commento Arabo)",
-        "description": "Non perderti nemmeno un'azione, su DAZN!",
-        "start": "2025-11-11T07:54:00.000+01:00",
-        "end": "2025-11-11T08:44:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "E-Sports - Giorno 1 (Commento Arabo)",
-        "description": "Non perderti nemmeno un'azione, su DAZN!",
-        "start": "2025-11-11T08:00:00.000+01:00",
-        "end": "2025-11-11T08:50:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Buongiorno Serie A",
-        "description": "Il buongiorno del calcio italiano. Un programma mattutino in diretta che apre la giornata con la rassegna stampa nazionale e sportiva, approfondimenti su quanto accaduto nel weekend o nel giorno precedente.",
-        "start": "2025-11-11T08:00:00.000+01:00",
-        "end": "2025-11-11T09:40:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Muay Thai - Giorno 1",
-        "description": "Non perderti nemmeno un'azione, su DAZN!",
-        "start": "2025-11-11T08:51:00.000+01:00",
-        "end": "2025-11-11T09:41:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Muay Thai - Giorno 1 (Commento Arabo)",
-        "description": "Non perderti nemmeno un'azione, su DAZN!",
-        "start": "2025-11-11T08:51:00.000+01:00",
-        "end": "2025-11-11T09:41:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "E-Sports - Giorno 1",
-        "description": "Non perderti nemmeno un'azione, su DAZN!",
-        "start": "2025-11-11T09:00:00.000+01:00",
-        "end": "2025-11-11T09:50:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Obiettivo Sulla Serie A",
-        "description": "Il punto centrale sulla giornata calcistica. Un’ora di approfondimento live con aggiornamenti, notizie in tempo reale e servizi dedicati. Il programma dà voce ai protagonisti del campionato attraverso interviste, contributi originali e focus su club, giocatori e trend del momento. Una bussola quotidiana per orientarsi tra le notizie della Serie A.",
-        "start": "2025-11-11T13:00:00.000+01:00",
-        "end": "2025-11-11T14:40:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Futsal - Giorno 5 (Commento Arabo)",
-        "description": "Non perderti nemmeno un'azione, su DAZN!",
-        "start": "2025-11-11T13:45:00.000+01:00",
-        "end": "2025-11-11T14:35:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Futsal - Day 5",
-        "description": "Watch the latest futsal action from the Islamic Solidarity Games",
-        "start": "2025-11-11T13:48:00.000+01:00",
-        "end": "2025-11-11T14:38:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Table Tennis - Day 4 - Session 2 (ARABIC)",
-        "description": "Non perderti nemmeno un'azione, su DAZN!",
-        "start": "2025-11-11T14:22:00.000+01:00",
-        "end": "2025-11-11T15:12:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Table Tennis - Day 4 Session 2",
-        "description": "Non perderti nemmeno un'azione, su DAZN!",
-        "start": "2025-11-11T14:22:00.000+01:00",
-        "end": "2025-11-11T15:12:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Social Corner",
-        "description": "Il lato digitale del campionato. Pensato per un pubblico giovane e appassionato, il programma esplora il mondo social della Serie A: dai contenuti più virali delle squadre ai profili più attivi dei calciatori, fino agli eSports, ai trend digitali e al Campionato Primavera. Un'ora frizzante tra interattività, meme, highlights e analisi del web.",
-        "start": "2025-11-11T15:00:00.000+01:00",
-        "end": "2025-11-11T16:40:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Weightlifting - Day 4 Session 2",
-        "description": "Non perderti nemmeno un'azione, su DAZN!",
-        "start": "2025-11-11T15:30:00.000+01:00",
-        "end": "2025-11-11T16:20:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Weightlifting - Day 4 Session 2 (In Arabic)",
-        "description": "Non perderti nemmeno un'azione, su DAZN!",
-        "start": "2025-11-11T15:30:00.000+01:00",
-        "end": "2025-11-11T16:20:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Nuoto - Giorno 4 (Commento Arabo)",
-        "description": "Non perderti nemmeno un'azione, su DAZN!",
-        "start": "2025-11-11T15:54:00.000+01:00",
-        "end": "2025-11-11T16:44:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Nuoto-Giorno 4 Session 2",
-        "description": "Non perderti nemmeno un'azione, su DAZN!",
-        "start": "2025-11-11T15:54:00.000+01:00",
-        "end": "2025-11-11T16:44:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "News Dai Campi di Serie A",
-        "description": "Un programma in diretta che unisce le 20 città della Serie A. Collegamenti con gli inviati dai centri sportivi, conferenze stampa, aggiornamenti in tempo reale dalle squadre, indiscrezioni e preparativi in vista del weekend di campionato. Un racconto giornalistico dal territorio, con il campionato vissuto minuto per minuto.",
-        "start": "2025-11-11T17:30:00.000+01:00",
-        "end": "2025-11-11T19:10:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Levickí Patrioti - Szolnoki Olajbányász",
-        "description": "Levickí Patrioti contro Szolnoki Olajbányász - Una partita da non perdere! I due team si affronteranno in un entusiasmante incontro che promette azione e suspense. I tifosi non vedono l'ora di vedere quale squadra emergerà vittoriosa in questo confronto avvincente.",
-        "start": "2025-11-11T18:30:00.000+01:00",
-        "end": "2025-11-11T19:20:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Karditsas - Oostende",
-        "description": "Karditsas affronta Oostende in un cruciale incontro della Basketball Champions League 2025/2026. Lo scontro dell'11 novembre al Kleisto Gymnasthrio Giannis Mpourousis promette azione intensa mentre entrambe le squadre lottano per punti cruciali. Karditsas sfrutterà il vantaggio di giocare in casa? Segui la Basketball Champions League su DAZN!",
-        "start": "2025-11-11T19:00:00.000+01:00",
-        "end": "2025-11-11T19:50:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Eubank Jr. vs. Benn 2: Grand Arrivals",
-        "description": "Guarda i grandi nomi e le migliori sfide su DAZN, la casa mondiale della boxe.",
-        "start": "2025-11-11T20:00:00.000+01:00",
-        "end": "2025-11-11T20:50:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "A tutta A",
-        "description": "Segui ogni azione su DAZN.",
-        "start": "2025-11-11T20:30:00.000+01:00",
-        "end": "2025-11-11T22:10:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Serie A Night",
-        "description": "Segui ogni azione su DAZN.",
-        "start": "2025-11-11T20:30:00.000+01:00",
-        "end": "2025-11-11T22:10:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Trapani Shark - Bnei Herzliya",
-        "description": "Trapani Shark si prepara ad affrontare Bnei Herzliya in un'emozionante partita di Basketball Champions League 2025/2026. La sfida è fissata per l'11 novembre 2025 al Palallio. Riuscirà Trapani Shark a difendere il proprio campo o Bnei Herzliya otterrà una vittoria in trasferta? Segui la Basketball Champions League su DAZN!",
-        "start": "2025-11-11T20:30:00.000+01:00",
-        "end": "2025-11-11T21:20:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "York - Rochdale",
-        "description": "Segui la National League su DAZN.",
-        "start": "2025-11-11T20:45:00.000+01:00",
-        "end": "2025-11-11T22:25:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Forest Green - Tamworth",
-        "description": "Segui la National League su DAZN.",
-        "start": "2025-11-11T20:45:00.000+01:00",
-        "end": "2025-11-11T22:25:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "La Laguna Tenerife - Tofaş",
-        "description": "Tenerife contro Tofaş: una partita da non perdere! Questi due formidabili team si affronteranno in una sfida emozionante. I tifosi sono in fermento per questo incontro che promette azione e suspense. Chi uscirà vittorioso? Non perdete questo spettacolare match!",
-        "start": "2025-11-11T21:00:00.000+01:00",
-        "end": "2025-11-11T21:50:00.000+01:00",
-        "poster": null
-      },
-      {
-        "title": "Tg1",
-        "description": null,
-        "start": "2025-11-11T23:55:00.000+01:00",
-        "end": "2025-11-12T00:00:00.000+01:00",
-        "poster": "https://img-api.superguidatv.it/v3/programs/1929361403/backdrops/1"
       }
     ]
   }
