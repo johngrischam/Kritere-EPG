@@ -44,99 +44,22 @@ export default {
   fetch: fetchSuperGuidaEPG,
   channels: [
     // --- Rai ---
-    8,   // Rai 1
-    10,  // Rai 2
-    12,  // Rai 3
-    14,  // Rai 4
-    16,  // Rai 5
-    18,  // Rai Movie
-    20,  // Rai Premium
-    22,  // Rai Gulp
-    24,  // Rai Yoyo
-    26,  // Rai News 24
-    28,  // Rai Sport
+    8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28,
 
     // --- Mediaset ---
-    30,  // Canale 5
-    32,  // Italia 1
-    34,  // Rete 4
-    36,  // 20 Mediaset
-    38,  // Iris
-    40,  // La5
-    42,  // Mediaset Extra
-    44,  // Focus
-    46,  // Top Crime
-    48,  // Cine34
-    50,  // TGCom24
+    30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50,
 
     // --- Sky / Pay-TV ---
-    102,  // Sky Uno
-    104,  // Sky Atlantic
-    105,  // Sky Cinema Uno
-    106,  // Sky Cinema Due
-    107,  // Sky Cinema Collection
-    108,  // Sky Cinema Family
-    109,  // Sky Cinema Action
-    110,  // Sky Cinema Comedy
-    111,  // Sky Cinema Romance
-    112,  // Sky Cinema Drama
-    113,  // Sky Sport 24
-    114,  // Sky Sport Uno
-    115,  // Sky Sport Calcio
-    116,  // Sky Sport Arena
-    117,  // Sky Sport Tennis
-    118,  // Sky TG24
-    119,  // Sky Arte
+    102, 104, 105, 106, 107, 108, 109, 110,
+    111, 112, 113, 114, 115, 116, 117, 118, 119,
 
     // --- Discovery & free channels ---
-    121,  // Real Time
-    122,  // Nove
-    123,  // DMAX
-    124,  // MotorTrend
-    125,  // Food Network
-    126,  // HGTV - Home & Garden TV
-    127,  // Giallo
-    128,  // K2
-    129,  // Frisbee
-    130,  // Boing
-    131,  // Cartoonito
-    132,  // Super!
-    133,  // Paramount Network (now Pluto TV Cinema)
-    134,  // TV8
-    135,  // Cielo
-    136,  // La7
-    137,  // La7d
-    138,  // TV2000
-    139,  // SuperTennis TV
-    140,  // Radio Italia TV
-    
-    // --- Rai ---
-    28,  // Rai Sport
+    121, 122, 123, 124, 125, 126, 127, 128,
+    129, 130, 131, 132, 133, 134, 135, 136,
+    137, 138, 139, 140,
 
-    // --- Sky Sport bouquet ---
-    113, // Sky Sport 24
-    114, // Sky Sport Uno
-    115, // Sky Sport Calcio
-    116, // Sky Sport Arena
-    117, // Sky Sport Tennis
-    118, // Sky TG24 (sports/news hybrid)
-
-    // --- Eurosport ---
-    141, // Eurosport 1
-    142, // Eurosport 2
-
-    // --- Motor & outdoor ---
-    124, // MotorTrend
-    145, // Sky Sport MotoGP
-    146, // Sky Sport F1
-
-    // --- Tennis & other federations ---
-    139, // SuperTennis TV
-
-    // --- Other Italian sports feeds ---
-    147, // Sportitalia
-    148, // Sportitalia 2
-    149, // Sportitalia Live
+    // --- Eurosport & sport bouquet ---
+    141, 142, 145, 146, 147, 148, 149,
   ],
 },
 
