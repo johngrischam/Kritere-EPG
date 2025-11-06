@@ -11,10 +11,24 @@ import fetchSuperGuidaEPG from "../../sources/it/superguidatv_clean.js";
 // Unified list of Italian EPG sources (3 total, simplified)
 // --------------------------------------------------------------------
 export default {
-  // --- Blue.ch: all main FTA & national channels ---
-  blue: {
+  // --- Blue.ch Group A: first 15 channels ---
+  blue_a: {
     fetch: fetchBlueEPG,
-    channels: [2064, 2015, 1948, 1665, 1386, 1379, 1346, 1287, 1123, 613, 393, 357, 356, 348, 346, 334, 332, 266, 257, 243, 239, 237, 216, 215, 214, 191, 118, 96, 79, 51],
+    channels: [
+      2064, 2015, 1948, 1665, 1386,
+      1379, 1346, 1287, 1123, 613,
+      393, 357, 356, 348, 346, 334
+    ],
+  },
+
+  // --- Blue.ch Group B: remaining 15 channels ---
+  blue_b: {
+    fetch: fetchBlueEPG,
+    channels: [
+      338, 332, 266, 257, 243, 239,
+      237, 216, 215, 214, 191,
+      118, 96, 79, 51
+    ],
   },
 
   // --- SamsungTVPlus: all FAST / streaming channels ---
@@ -23,9 +37,4 @@ export default {
     channels: ["*"], // expands automatically from XML
   },
 
-  // --- SuperGuidaTV: Sky / Pay-TV channels only ---
-  superguidatv: {
-    fetch: fetchSuperGuidaEPG,
-    channels: [1], // Sky Uno
-  },
-}; // ✅ <--- closes the export object
+}; 
