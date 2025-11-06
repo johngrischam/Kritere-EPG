@@ -1,6 +1,6 @@
 // ====================================================================
 //  superguidatv_clean.js — SuperGuidaTV EPG (Zappr-style + Luxon)
-//  Author: KritereTV (final hybrid build: guid[] primary, channelId[] fallback)
+//  Author: KritereTV (final hybrid build + enhanced poster + channel icon fallback)
 //  Output: [{ id, name, programs[] }]
 // ====================================================================
 
@@ -37,16 +37,33 @@ async function getGuestToken() {
   return { access: json.access_token, token };
 }
 
-// --- Poster resolver (detects all known fields, returns null if none) ---
+// --- Poster resolver (checks multiple fields) ---
 function resolvePoster(entry) {
   const candidates = [
     entry?.event?.backdropUrl,
     entry?.event?.coverUrl,
+    entry?.event?.imageUrl,
     entry?.event?.images?.[0]?.url,
+    entry?.program?.backdropUrl,
+    entry?.program?.coverUrl,
+    entry?.program?.imageUrl,
+    entry?.program?.images?.[0]?.url,
     entry?.serie?.backdropUrl,
     entry?.serie?.coverUrl,
-    entry?.program?.backdropUrl,
-    entry?.program?.coverUrl
+    entry?.serie?.imageUrl,
+    entry?.serie?.images?.[0]?.url
+  ];
+  const url = candidates.find(u => typeof u === "string" && u.length > 10);
+  if (!url) return null;
+  return url.startsWith("/") ? "https://cdn.superguidatv.it" + url : url;
+}
+
+// --- Channel icon resolver (used as fallback) ---
+function resolveChannelIcon(channelData) {
+  const candidates = [
+    channelData?.logo,
+    channelData?.imageUrl,
+    channelData?.images?.[0]?.url
   ];
   const url = candidates.find(u => typeof u === "string" && u.length > 10);
   if (!url) return null;
@@ -90,7 +107,9 @@ async function fetchDay(channelGuid, dateRome, auth) {
   const json = result.data;
   if (!json?.[0]?.events) return [];
 
+  const channelIcon = resolveChannelIcon(json[0]?.channel);
   const programs = [];
+
   for (const entry of json[0].events) {
     const e = entry.event;
     if (!e?.startDate || !e?.endDate) continue;
@@ -99,12 +118,14 @@ async function fetchDay(channelGuid, dateRome, auth) {
     const end = DateTime.fromISO(e.endDate, { zone: "Europe/Rome" });
     if (!start.isValid || !end.isValid) continue;
 
+    const poster = resolvePoster(entry) || channelIcon;
+
     programs.push({
       title: e.title || "Senza titolo",
       description: e.story || null,
       start: start.toISO(),
       end: end.toISO(),
-      poster: resolvePoster(entry)
+      poster
     });
   }
 
