@@ -14,7 +14,7 @@ export default {
   // --- Blue.ch: all main FTA & national channels ---
   blue: {
     fetch: fetchBlueEPG,
-    channels: [1287, 1123, 348, 79, 215, 237, 266, 118, 332, 334],
+    channels: [2064, 2015, 1948, 1665, 1386, 1379, 1346, 1287, 1123, 613, 393, 357, 356, 348, 346, 334, 332, 266, 257, 243, 239, 237, 216, 215, 214, 191, 118, 96, 79, 51],
   },
 
   // --- SamsungTVPlus: all FAST / streaming channels ---
