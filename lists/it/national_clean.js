@@ -48,7 +48,7 @@ export default {
   // --- SuperGuidaTV: Sky / Pay-TV channels only ---
   superguidatv: {
     fetch: fetchSuperGuidaEPG,
-    channels: [1], // Sky Uno
+    channels: [102, 105, 106, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 141, 142, 145, 146], 
   },
 };
 
