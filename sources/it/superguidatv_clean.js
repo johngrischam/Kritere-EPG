@@ -1,13 +1,12 @@
 // ====================================================================
 //  superguidatv_clean.js — SuperGuidaTV EPG (Zappr-style + Luxon)
-//  Author: KritereTV (classic logic: 1-day, channelId[], ct-ver=1is)
-//  Output: { [channelId]: [programs[]] }
+//  Author: KritereTV (channelId-only + 1-day + ct-ver=1is)
+//  Output: [{ id, name, programs[] }]
 // ====================================================================
 
 import { DateTime } from "luxon";
-import log from "../../utils/logger";
 
-// --- Helper: random generator (Zappr-style) ---
+// --- Internal helper: random generator (matches Zappr's style) ---
 function randomString(length, hex = false) {
   const chars = hex
     ? "abcdef1234567890"
@@ -17,149 +16,127 @@ function randomString(length, hex = false) {
 
 // --- Fetch temporary guest token (valid ~15 min) ---
 async function getGuestToken() {
-  const token = `${Math.floor(DateTime.now().toSeconds())}-${randomString(43)}=`;
+  const token = `${Math.floor(Date.now() / 1000)}-${randomString(43)}=`;
+  const body = {
+    client_id: randomString(22),
+    device_id: `AID_${randomString(16, true)}`
+  };
+
   const res = await fetch("https://api-ng.superguidatv.it/v3/oauth/guest", {
     method: "POST",
     headers: {
       "x-client-token": token,
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({
-      client_id: randomString(22),
-      device_id: `AID_${randomString(16, true)}`
-    })
+    body: JSON.stringify(body)
   });
 
+  if (!res.ok) throw new Error(`Guest token fetch failed (${res.status})`);
   const json = await res.json();
-  return json.access_token;
+  console.log("✅ Access token received.");
+  return { access: json.access_token, token };
 }
 
-// --- Main: fetch one day sequentially for each channelId ---
-export default async function fetchEPG(channels) {
-  const accessToken = await getGuestToken();
-  let epg = {};
+// --- Poster resolver (limited fields only) ---
+function resolvePoster(entry) {
+  const candidates = [
+    entry?.event?.backdropUrl,
+    entry?.event?.coverUrl,
+    entry?.program?.backdropUrl,
+    entry?.program?.coverUrl,
+    entry?.serie?.backdropUrl,
+    entry?.serie?.coverUrl
+  ];
+  const url = candidates.find(u => typeof u === "string" && u.length > 10);
+  if (!url) return null;
+  return url.startsWith("/") ? "https://cdn.superguidatv.it" + url : url;
+}
 
-  for (const channel in channels) {
-    const ch = channels[channel];
-    epg[ch] = [];
-    let lastEntryEndDate;
+// --- Channel icon resolver (fallback if no poster) ---
+function resolveChannelIcon(channelData) {
+  const candidates = [
+    channelData?.logo,
+    channelData?.imageUrl,
+    channelData?.images?.[0]?.url
+  ];
+  const url = candidates.find(u => typeof u === "string" && u.length > 10);
+  if (!url) return null;
+  return url.startsWith("/") ? "https://cdn.superguidatv.it" + url : url;
+}
 
-    // ✅ 1-day only
-    const startDate = DateTime.now().setZone("Europe/Rome").toFormat("yyyy-MM-dd");
-    const endDate = DateTime.now().setZone("Europe/Rome").plus({ days: 1 }).toFormat("yyyy-MM-dd");
+// --- Fetch one single day for channelId[] only ---
+async function fetchDayByChannelId(channelId, dateRome, auth) {
+  const startDate = dateRome.toFormat("yyyy-MM-dd");
+  const endDate = dateRome.plus({ days: 1 }).toFormat("yyyy-MM-dd");
 
-    log("generating", { source: "superguidatv", channel: ch, day: `${startDate} - ${endDate}` });
+  const url =
+    `https://api-ng.superguidatv.it/v3/channels-events?` +
+    `startDate=${startDate}T00:00:00&endDate=${endDate}T23:59:59` +
+    `&orderBy=channelNumber&channelId[]=${channelId}&ct-ver=1is&bld=5504148&plt=ANDROID`;
 
-    try {
-      const res = await fetch(
-        `https://api-ng.superguidatv.it/v3/channels-events?startDate=${startDate}T00:00:00&endDate=${endDate}T23:59:59&orderBy=channelNumber&channelId[]=${ch}&ct-ver=1is&bld=5504148&plt=ANDROID`,
-        {
-          headers: {
-            "x-client-token": `${Math.floor(DateTime.now().toSeconds())}-${randomString(43)}=`,
-            Authorization: `Bearer ${accessToken}`
-          }
-        }
-      );
-
-      const json = await res.json();
-      if (!json?.[0]?.events) continue;
-
-      epg[ch] = [
-        ...epg[ch],
-        ...json[0].events.flatMap((entry, index) => {
-          const e = entry.event;
-          const startTime = DateTime.fromISO(e.startDate);
-          const endTime = DateTime.fromISO(e.endDate);
-          if (!startTime.isValid || !endTime.isValid) return [];
-
-          if ((lastEntryEndDate && startTime.ts > lastEntryEndDate) || lastEntryEndDate !== endTime.ts) {
-            const today = DateTime.now().setZone("Europe/Rome").startOf("day");
-            if (today.ts > endTime.ts) return [];
-
-            let name =
-              e.title === e.title.toLowerCase()
-                ? e.title
-                    .split(" ")
-                    .map(el => el.charAt(0).toUpperCase() + el.slice(1))
-                    .join(" ")
-                : e.title;
-
-            let result = {
-              name,
-              startTime: {
-                unix: startTime.ts,
-                iso: startTime.toISO()
-              },
-              endTime: {
-                unix: endTime.ts,
-                iso: endTime.toISO()
-              }
-            };
-
-            // description
-            if (e.story && e.story.trim()) {
-              const story = e.story.trim();
-              result.description =
-                story[0] === story[0].toLowerCase()
-                  ? story[0].toUpperCase() + story.slice(1)
-                  : story;
-            }
-
-            // ✅ limited image fields
-            if (entry.serie) {
-              if (entry.serie.backdropUrl || entry.serie.coverUrl) {
-                result.image = entry.serie.backdropUrl || entry.serie.coverUrl;
-              }
-            } else if (entry.program) {
-              if (entry.program.backdropUrl || entry.program.coverUrl) {
-                result.image = entry.program.backdropUrl || entry.program.coverUrl;
-              }
-            }
-
-            // Fill "Programmazione non disponibile"
-            if (lastEntryEndDate && index !== 0 && startTime.ts !== lastEntryEndDate) {
-              result = [
-                {
-                  name: "Programmazione non disponibile",
-                  startTime: {
-                    unix: DateTime.fromMillis(lastEntryEndDate).ts,
-                    iso: DateTime.fromMillis(lastEntryEndDate).toISO()
-                  },
-                  endTime: {
-                    unix: startTime.ts,
-                    iso: startTime.toISO()
-                  }
-                },
-                result
-              ];
-            }
-
-            lastEntryEndDate = endTime.ts;
-            return result;
-          } else return [];
-        })
-      ];
-
-      // ✅ duplicate filtering
-      const seenStarts = new Set();
-      const seenEnds = new Set();
-      epg[ch] = epg[ch].filter(ev => {
-        const start = ev.startTime?.unix;
-        const end = ev.endTime?.unix;
-        if (!start || !end) return false;
-        if (seenStarts.has(start) || seenEnds.has(end)) return false;
-        seenStarts.add(start);
-        seenEnds.add(end);
-        return true;
-      });
-
-      log("generating-done", { source: "superguidatv", channel: ch, day: `${startDate} - ${endDate}` });
-    } catch (err) {
-      log("generating-fail", { source: "superguidatv", channel: ch, error: err.message });
+  const res = await fetch(url, {
+    headers: {
+      "x-client-token": auth.token,
+      Authorization: `Bearer ${auth.access}`
     }
+  });
 
-    log("spacer", { width: 89 });
+  if (!res.ok) {
+    console.warn(`⚠️ Fetch failed for channelId ${channelId} (${res.status})`);
+    return [];
   }
 
-  return epg;
+  const json = await res.json();
+  if (!json?.[0]?.events?.length) return [];
+
+  const channelIcon = resolveChannelIcon(json[0]?.channel);
+  const programs = [];
+
+  for (const entry of json[0].events) {
+    const e = entry.event;
+    if (!e?.startDate || !e?.endDate) continue;
+
+    const start = DateTime.fromISO(e.startDate, { zone: "Europe/Rome" });
+    const end = DateTime.fromISO(e.endDate, { zone: "Europe/Rome" });
+    if (!start.isValid || !end.isValid) continue;
+
+    const poster = resolvePoster(entry) || channelIcon;
+
+    programs.push({
+      title: e.title || "Senza titolo",
+      description: e.story || null,
+      start: start.toISO(),
+      end: end.toISO(),
+      poster
+    });
+  }
+
+  // ✅ Filter duplicates
+  const seen = new Set();
+  return programs.filter(p => {
+    const key = p.start + "|" + p.end;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
+
+// --- Main: sequential (no concurrency), 1-day only ---
+export default async function fetchSuperGuidaEPG(channels) {
+  const results = [];
+  const today = DateTime.now().setZone("Europe/Rome").startOf("day");
+  const auth = await getGuestToken();
+
+  for (const id of channels) {
+    const programs = await fetchDayByChannelId(id, today, auth);
+    results.push({
+      id: String(id),
+      name: `SuperGuidaTV ${id}`,
+      programs
+    });
+    console.log(`✅ SuperGuidaTV channelId:${id} → ${programs.length} programs`);
+  }
+
+  return results;
+}
+
